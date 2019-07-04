@@ -1,7 +1,7 @@
 {
   "root": true,
   "api": {
-    "projectId": "7j9cnsfo",
+    "projectId": "mxk7v200",
     "dataset": "production"
   },
   "project": {
@@ -26,4 +26,3 @@
     }
   ]
 }
-
