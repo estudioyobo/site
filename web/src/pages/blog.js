@@ -16,7 +16,7 @@ export const query = graphql`
         node {
           id
           publishedAt
-          mainImage {
+          cover {
             asset {
               _id
             }

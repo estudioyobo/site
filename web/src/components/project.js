@@ -9,18 +9,18 @@ import Container from './container'
 import styles from './project.module.css'
 
 function Project (props) {
-  const { _rawBody, title, categories, mainImage, publishedAt, relatedProjects } = props
+  const { _rawBody, title, categories, cover, publishedAt, relatedProjects } = props
   return (
     <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
+      {props.cover && cover.asset && (
+        <div className={styles.cover}>
           <img
-            src={imageUrlFor(buildImageObj(mainImage))
+            src={imageUrlFor(buildImageObj(cover))
               .width(1200)
               .height(Math.floor((9 / 16) * 1200))
               .fit('crop')
               .url()}
-            alt={mainImage.alt}
+            alt={cover.alt}
           />
         </div>
       )}

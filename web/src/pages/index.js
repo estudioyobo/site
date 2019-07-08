@@ -20,7 +20,7 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
+          cover {
             crop {
               _key
               _type
@@ -56,7 +56,7 @@ export const query = graphql`
         node {
           id
           publishedAt
-          mainImage {
+          cover {
             crop {
               _key
               _type

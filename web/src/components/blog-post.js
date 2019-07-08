@@ -9,18 +9,18 @@ import RoleList from './role-list'
 import styles from './blog-post.module.css'
 
 function BlogPost (props) {
-  const { _rawBody, authors, categories, title, mainImage, publishedAt } = props
+  const { _rawBody, authors, categories, title, cover, publishedAt } = props
   return (
     <article className={styles.root}>
-      {mainImage && mainImage.asset && (
-        <div className={styles.mainImage}>
+      {cover && cover.asset && (
+        <div className={styles.cover}>
           <img
-            src={imageUrlFor(buildImageObj(mainImage))
+            src={imageUrlFor(buildImageObj(cover))
               .width(1200)
               .height(Math.floor((9 / 16) * 1200))
               .fit('crop')
               .url()}
-            alt={mainImage.alt}
+            alt={cover.alt}
           />
         </div>
       )}

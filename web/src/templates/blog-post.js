@@ -15,7 +15,7 @@ export const query = graphql`
         _id
         title
       }
-      mainImage {
+      cover {
         crop {
           _key
           _type

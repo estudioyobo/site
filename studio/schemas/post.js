@@ -36,8 +36,8 @@ export default {
       of: [{ type: 'postAuthor' }]
     },
     {
-      name: 'mainImage',
-      title: 'Main image',
+      name: 'cover',
+      title: 'Cover',
       type: 'mainImage'
     },
     {
@@ -68,7 +68,7 @@ export default {
     select: {
       title: 'title',
       publishedAt: 'publishedAt',
-      image: 'mainImage'
+      image: 'cover'
     },
     prepare ({ title = 'No title', publishedAt, image }) {
       return {

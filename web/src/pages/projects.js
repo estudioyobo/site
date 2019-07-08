@@ -15,7 +15,7 @@ export const query = graphql`
       edges {
         node {
           id
-          mainImage {
+          cover {
             asset {
               _id
             }
