@@ -1,13 +1,14 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
 
-.root {}
+.root {
+}
 
 .title {
   composes: responsiveTitle1 from './typography.module.css';
 }
 
-.mainImage {
+.cover {
   position: relative;
   background: #eee;
   padding-bottom: calc(9 / 16 * 100%);

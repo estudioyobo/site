@@ -16,8 +16,6 @@ function Project (props) {
         <div className={styles.cover}>
           <img
             src={imageUrlFor(buildImageObj(cover))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
               .fit('crop')
               .url()}
             alt={cover.alt}
@@ -35,7 +33,7 @@ function Project (props) {
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
-                  : format(new Date(publishedAt), 'MMMM Do YYYY')}
+                  : format(new Date(publishedAt), 'MMMM YYYY')}
               </div>
             )}
             {categories && (

@@ -6,7 +6,14 @@ const {
 module.exports = {
   plugins: [
     'gatsby-plugin-postcss',
+    'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: ['Montserrat:200,400,500,600,800', 'Crimson Text:400i,600i']
+      }
+    },
     {
       resolve: 'gatsby-source-sanity',
       options: {
@@ -14,6 +21,7 @@ module.exports = {
         dataset,
         // To enable preview of drafts, copy .env-example into .env,
         // and add a token with read permissions
+        watchMode: true,
         token: process.env.SANITY_TOKEN,
         overlayDrafts: true
       }

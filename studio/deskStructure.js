@@ -1,8 +1,19 @@
-import S from '@sanity/desk-tool/structure-builder'
-import { MdBusiness, MdSettings } from 'react-icons/md'
-import { FaFile } from 'react-icons/fa'
+import S from '@sanity/desk-tool/structure-builder';
+import { MdBusiness, MdSettings } from 'react-icons/md';
+import { FaFile, FaCodepen, FaPenFancy, FaInfoCircle } from 'react-icons/fa';
 
-const hiddenTypes = ['category', 'companyInfo', 'page', 'person', 'post', 'project', 'siteSettings']
+const hiddenTypes = [
+  'category',
+  'companyInfo',
+  'page',
+  'service',
+  'serviceElement',
+  'person',
+  'post',
+  'client',
+  'project',
+  'siteSettings'
+]
 
 export default () =>
   S.list()
@@ -60,6 +71,37 @@ export default () =>
                 .icon(FaFile)
             ])
         ),
+      S.listItem()
+        .title('Services')
+        .child(
+          S.list()
+            .title('Services')
+            .items([
+              S.listItem()
+                .title('Design')
+                .child(
+                  S.editor()
+                    .id('designService')
+                    .schemaType('service')
+                    .documentId('design')
+                )
+                .icon(FaPenFancy),
+              S.listItem()
+                .title('Development')
+                .child(
+                  S.editor()
+                    .id('developmentService')
+                    .schemaType('service')
+                    .documentId('development')
+                )
+                .icon(FaCodepen)
+            ])
+        )
+        .icon(FaInfoCircle),
+      S.listItem()
+        .title('Clients')
+        .schemaType('client')
+        .child(S.documentTypeList('client').title('Clients')),
       S.listItem()
         .title('People')
         .schemaType('person')

@@ -1,12 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
-import BlogPostPreviewGrid from '../components/blog-post-preview-grid'
-import Container from '../components/container'
+import Top from '../components/Top'
 import GraphQLErrorList from '../components/graphql-error-list'
-import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
+import LandingMenu from '../components/LandingMenu'
+import Portfolio from '../landing-sections/Portfolio'
+import ServicesSection from '../landing-sections/Services'
+import Companies from '../landing-sections/Companies'
+import TeamWork from '../landing-sections/Teamwork'
+import Contact from '../landing-sections/Contact'
+import Hero from '../landing-sections/Hero'
 import Layout from '../containers/layout'
+import SocialSide from '../components/SocialSide'
+
+import './index.css'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -16,70 +24,64 @@ export const query = graphql`
       keywords
     }
 
-    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    companyInfo: sanityCompanyInfo(_id: { regex: "/(drafts.|)companyInfo/" }) {
+      id
+      social {
+        name
+        icon {
+          asset {
+            _id
+          }
+        }
+        link
+      }
+    }
+
+    clients: allSanityClient {
       edges {
         node {
           id
-          cover {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
+          name
+          icon {
             asset {
               _id
             }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
           }
         }
       }
     }
 
-    posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    services: allSanityService {
+      edges {
+        node {
+          _id
+          description
+          elements {
+            title
+            description
+          }
+        }
+      }
+    }
+
+    projects: allSanityProject(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
-          publishedAt
-          cover {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
+          thumbnail {
             asset {
-              _id
+              fluid {
+                ...GatsbySanityImageFluid
+              }
             }
             alt
           }
           title
+          categories {
+            title
+          }
           _rawExcerpt
+          publishedAt
           slug {
             current
           }
@@ -88,6 +90,29 @@ export const query = graphql`
     }
   }
 `
+
+const sections = [
+  {
+    id: 'start',
+    name: 'Inicio'
+  },
+  {
+    id: 'services',
+    name: 'Servicios'
+  },
+  {
+    id: 'portfolio',
+    name: 'Portfolio'
+  },
+  {
+    id: 'team',
+    name: 'Equipo'
+  },
+  {
+    id: 'contact',
+    name: 'Contacto'
+  }
+]
 
 const IndexPage = props => {
   const { data, errors } = props
@@ -101,12 +126,12 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
+  const companyInfo = (data || {}).companyInfo
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
+  const clientNodes = (data || {}).clients ? mapEdgesToNodes(data.clients) : []
+  const servicesNodes = (data || {}).services ? mapEdgesToNodes(data.services) : []
 
   if (!site) {
     throw new Error(
@@ -115,25 +140,19 @@ const IndexPage = props => {
   }
 
   return (
-    <Layout>
+    <Layout showNav>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <Container>
-        <h1 hidden>Welcome to {site.title}</h1>
-        {projectNodes && (
-          <ProjectPreviewGrid
-            title='Latest projects'
-            nodes={projectNodes}
-            browseMoreHref='/projects/'
-          />
-        )}
-        {postNodes && (
-          <BlogPostPreviewGrid
-            title='Latest blog posts'
-            nodes={postNodes}
-            browseMoreHref='/blog/'
-          />
-        )}
-      </Container>
+      <main className='home'>
+        <Top />
+        <SocialSide social={companyInfo.social} />
+        <LandingMenu sections={sections} />
+        <Hero carousel={[]} />
+        <ServicesSection services={servicesNodes} />
+        <Portfolio posts={projectNodes} />
+        <Companies companies={clientNodes} />
+        <TeamWork />
+        <Contact />
+      </main>
     </Layout>
   )
 }

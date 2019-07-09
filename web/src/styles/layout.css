@@ -1,7 +1,7 @@
 @import './vars.css';
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: var(--font-base-size);
   line-height: var(--font-base-line-height);
 }
@@ -11,8 +11,12 @@ body {
   background: var(--color-white);
   color: var(--color-black);
   margin: 0;
+  overflow-x: hidden;
 }
 
-html, body, body > div, body > div > div {
+html,
+body,
+body > div,
+body > div > div {
   height: 100%;
 }

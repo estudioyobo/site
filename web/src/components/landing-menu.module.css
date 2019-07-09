@@ -1,0 +1,19 @@
+.nav {
+  position: fixed;
+  margin: 0 2rem;
+  z-index: 30;
+  min-width: 100px;
+  top: 40%;
+}
+
+/**
+ *
+ * Media Queries
+ *
+ */
+
+@media (max-width: 800px) {
+  .nav {
+    display: none;
+  }
+}
