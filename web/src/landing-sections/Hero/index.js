@@ -8,7 +8,7 @@ const Hero = ({ carousel }) => {
     <section id='start' className='hero'>
       <object data={carousel[0]} className='hero--caroussel' alt='decorative landing' />
       <h1>
-        Diseño y<br /> Desarrollo
+        DISEÑO Y<br /> DESARROLLO
       </h1>
       <div className='hero--description'>
         <p>
@@ -17,7 +17,7 @@ const Hero = ({ carousel }) => {
         </p>
       </div>
       <a href='#contact' className='hero--contact'>
-        Contacto
+        CONTACTO
       </a>
     </section>
   )

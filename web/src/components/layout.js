@@ -9,7 +9,7 @@ const Layout = ({ children, companyInfo, showNav }) => (
   <>
     {showNav && <Header />}
     <div className={styles.content}>{children}</div>
-    <Footer companyInfo={companyInfo} />
+    {companyInfo && <Footer companyInfo={companyInfo} />}
   </>
 )
 

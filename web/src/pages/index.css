@@ -11,3 +11,11 @@ ul {
   list-style-position: outside;
   list-style-image: none;
 }
+
+section {
+  overflow: hidden;
+}
+
+:root {
+  --header-height: 100px;
+}

@@ -2,34 +2,37 @@
   display: grid;
   padding: 0;
   width: 100%;
-  height: calc(100vh - 84px);
+  height: calc(100vh - var(--header-height));
   grid-template-columns: 1fr 3fr 3fr 5fr;
   grid-template-rows: 3fr 3fr 1fr;
+
   grid-template-areas: 'nav title title .' 'nav description . .' 'contact contact . .';
 }
 
 .hero h1 {
   grid-area: title;
   align-self: end;
-  font-size: 5vw;
-
+  font-size: 8em;
   font-weight: 800;
-
+  margin: 0;
   padding-left: 50px;
 }
 
 .hero--description {
   grid-area: description;
   align-self: center;
-  font-size: 14px;
+  font-size: 2.5em;
+  font-family: 'Crimson Text';
 }
 
 .hero--contact {
   background: #333;
   grid-area: contact;
-  color: #f3f4f0;
+  color: white;
   text-decoration: none;
   text-align: center;
+  font-size: 1.6em;
+  letter-spacing: 4px;
   line-height: 100px;
   transition: all 0.3s ease-in-out;
 }

@@ -28,6 +28,7 @@ export const Description = styled.div`
   grid-row: 3;
   grid-column: ${({ right }) => (right ? '10 / 13' : '3 / 6')};
   margin-top: 10px;
+  font-size: 1.5em;
 
   @media (max-width: 800px) {
     grid-column: ${({ right }) => (right ? '2 / 11' : '5 / 14')};
@@ -65,11 +66,13 @@ export const ServiceCol2 = styled.div`
   }
 `
 export const ServiceItem = styled.li`
-  margin-bottom: 40px;
+  margin: 0 40px 40px 0;
   font-weight: bold;
+  font-size: 1.6em;
 
   & > ul {
-    color: #f3f4f0;
+    font-size: 0.65em;
+    color: white;
     list-style: none;
     margin: 10px 0;
   }

@@ -2,8 +2,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px auto;
+  margin: 0px auto;
   max-width: 960px;
+  height: var(--header-height);
   overflow: hidden;
   z-index: 100;
 }

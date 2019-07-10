@@ -1,7 +1,7 @@
 @import '../styles/media-queries.css';
 
 :root {
-  --base-unit: 17;
+  --base-unit: 16;
 
   /* Font sizes */
   --font-micro-size: calc(8 / var(--base-unit) * 1rem);
@@ -19,8 +19,6 @@
   --font-title1-size: calc(44 / var(--base-unit) * 1rem);
   --font-title1-line-height: calc(56 / 44);
 }
-
-
 
 /*
  * Statically sized elements
@@ -61,8 +59,6 @@
   line-height: var(--font-micro-line-height);
   text-transform: uppercase;
 }
-
-
 
 /*
  * Responsively sized elements
