@@ -11,6 +11,7 @@ const CompanyWrapper = styled.div`
 
 const Img = styled.img`
   max-height: 10rem;
+  max-width: 100%;
 `
 
 const Company = ({ name, icon, link }) => {

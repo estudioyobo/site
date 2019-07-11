@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 import Company from './company'
 
-import 'slick-carousel/slick/slick.css'
-
 const SectionWrapper = styled.section`
   background: #333;
   color: var(--color-accent);
@@ -29,6 +27,14 @@ const Companies = ({ companies }) => (
       centerMode
       slidesToShow={3}
       arrows={false}
+      responsive={[
+        {
+          breakpoint: 800,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]}
     >
       {companies.map(company => (
         <Company key={company.name} {...company} />

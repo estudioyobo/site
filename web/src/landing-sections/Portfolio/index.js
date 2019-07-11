@@ -6,9 +6,6 @@ import Slider from 'react-slick'
 import SectionHeader from '../../components/SectionHeader'
 import { Slideshow } from './reveal'
 
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-
 import './portfolio.css'
 import './revealer.css'
 

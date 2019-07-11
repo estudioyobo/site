@@ -50,6 +50,7 @@ export const Services = styled.ul`
     grid-column: 1 / 15;
     grid-row: 7;
     padding: 40px 40px 0;
+    grid-template-columns: 1fr;
   }
 `
 
