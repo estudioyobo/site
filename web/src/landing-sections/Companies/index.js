@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css'
 
 const SectionWrapper = styled.section`
   background: #333;
-  color: #56ef98;
+  color: var(--color-accent);
   padding: 50px 100px;
   text-align: center;
   @media (max-width: 800px) {

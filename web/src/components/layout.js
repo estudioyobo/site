@@ -8,7 +8,7 @@ import Footer from './Footer'
 const Layout = ({ children, companyInfo, showNav }) => (
   <>
     {showNav && <Header />}
-    <div className={styles.content}>{children}</div>
+    <main className={styles.content}>{children}</main>
     {companyInfo && <Footer companyInfo={companyInfo} />}
   </>
 )

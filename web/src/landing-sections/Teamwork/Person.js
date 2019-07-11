@@ -24,7 +24,7 @@ const BasePerson = styled.div`
   }
 
   & div {
-    background: #56ef98;
+    background: var(--color-accent);
     grid-row: 2 / 3;
     grid-column: 1 / 2;
     display: none;
@@ -34,7 +34,7 @@ const BasePerson = styled.div`
     grid-column: 1 / 2;
     display: none;
     z-index: 3;
-    color: white;
+    color: var(--color-white);
     font-size: 69px;
     font-weight: 600;
     line-height: 60px;

@@ -22,8 +22,8 @@ const Us = styled.div`
 `
 
 const Description = styled.div`
-  background: #333;
-  color: #f3f4f0;
+  background: var(--color-black);
+  color: var(--color-white);
   grid-column: 9 / 15;
   grid-row: 3 / 4;
   display: none;
@@ -81,7 +81,7 @@ const Order = styled.div`
   font-size: 15em;
   text-align: right;
   font-weight: 800;
-  color: #56ef98;
+  color: var(--color-accent);
   grid-column: 12 / 15;
   grid-row: 1 / 2;
   display: none;
@@ -101,11 +101,10 @@ const Magic = styled.section`
   justify-content: space-between;
   padding-top: 50px;
   height: 100vh;
-  background: #f3f4f0;
 `
 
 class TeamWork extends Component {
-  componentDidMount() {
+  componentDidMount () {
     this.controller = new ScrollMagic.Controller({
       globalSceneOptions: {
         triggerHook: 'onLeave'
@@ -143,64 +142,64 @@ class TeamWork extends Component {
       .addTo(this.controller)
   }
 
-  render() {
+  render () {
     return (
-      <Magic id="team">
-        <SectionHeader title="Equipo" dividerColor="#56EF98" />
+      <Magic id='team'>
+        <SectionHeader title='Equipo' dividerColor='#56EF98' />
         <Us>
           <People>
             <Person
-              className="p1"
+              className='p1'
               Wrapper={Person1}
               image={jesusIMG}
-              name="Jesús"
-              surname="Gallego"
+              name='Jesús'
+              surname='Gallego'
             />
             <Person
-              className="p2"
+              className='p2'
               Wrapper={Person2}
               image={antoniIMG}
-              name="Antoni"
-              surname="Boix"
+              name='Antoni'
+              surname='Boix'
             />
             <Person
-              className="p3"
+              className='p3'
               Wrapper={Person3}
               image={alexIMG}
-              name="Alejandro"
-              surname="Almira"
+              name='Alejandro'
+              surname='Almira'
             />
           </People>
-          <Order className="p1">01</Order>
-          <PersonTitle className="p1">Ingeniero Informático</PersonTitle>
-          <Description className="p1">
-            <Degree title="Grado en Ingeniería Informática" university="Universidad de Alicante" />
+          <Order className='p1'>01</Order>
+          <PersonTitle className='p1'>Ingeniero Informático</PersonTitle>
+          <Description className='p1'>
+            <Degree title='Grado en Ingeniería Informática' university='Universidad de Alicante' />
             <Degree
-              title="Máster en Desarrollo de Software para Dispositivos Móviles"
-              university="Universidad de Alicante"
+              title='Máster en Desarrollo de Software para Dispositivos Móviles'
+              university='Universidad de Alicante'
             />
             <p>
               Especializado en Software, con interés en el desarrollo Móvil y Web, que cuenta con
               experiencia en tecnologías emergentes como React y GraphQL.
             </p>
           </Description>
-          <Order className="p2">02</Order>
-          <PersonTitle className="p2">Diseñador gráfico</PersonTitle>
-          <Description className="p2">
+          <Order className='p2'>02</Order>
+          <PersonTitle className='p2'>Diseñador gráfico</PersonTitle>
+          <Description className='p2'>
             <Degree
-              title="Grado en Diseño Gráfico"
-              university="Escuela de Arte y Superior de Diseño de Alicante"
+              title='Grado en Diseño Gráfico'
+              university='Escuela de Arte y Superior de Diseño de Alicante'
             />
             <p>
               Creativo de naturaleza, especializado en branding e ilustraciones vectoriales. Capaz
               de encontrar el alma de la idea y explotarla al máximo.
             </p>
           </Description>
-          <Order className="p3">03</Order>
-          <PersonTitle className="p3">Ingeniero Informático</PersonTitle>
-          <Description className="p3">
-            <Degree title="Grado en Ingeniería Informática" university="Universidad de Alicante" />
-            <Degree title="Máster en Automática y Robótica" university="Universidad de Alicante" />
+          <Order className='p3'>03</Order>
+          <PersonTitle className='p3'>Ingeniero Informático</PersonTitle>
+          <Description className='p3'>
+            <Degree title='Grado en Ingeniería Informática' university='Universidad de Alicante' />
+            <Degree title='Máster en Automática y Robótica' university='Universidad de Alicante' />
             <p>
               Devorador de conocimiento. Especializado en automática y robótica, apasionado por el
               software libre, la automatización de tareas y todo lo que sea mejorar el mundo

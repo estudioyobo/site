@@ -144,17 +144,16 @@ const IndexPage = props => {
   return (
     <Layout showNav>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
-      <main className='home'>
-        <Top />
-        <SocialSide social={companyInfo.social} />
-        <LandingMenu sections={sections} />
-        <Hero carousel={heroImages} />
-        <ServicesSection services={servicesNodes} />
-        <Portfolio posts={projectNodes} />
-        <Companies companies={clientNodes} />
-        <TeamWork />
-        <Contact />
-      </main>
+
+      <Top />
+      <SocialSide social={companyInfo.social} />
+      <LandingMenu sections={sections} />
+      <Hero carousel={heroImages} />
+      <ServicesSection services={servicesNodes} />
+      <Portfolio posts={projectNodes} />
+      <Companies companies={clientNodes} />
+      <TeamWork />
+      <Contact />
     </Layout>
   )
 }

@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import SectionHeader from "../../components/SectionHeader";
+import React from 'react'
+import styled from 'styled-components'
+import SectionHeader from '../../components/SectionHeader'
 
-import AnimatedInput from "../../components/AnimatedInput";
+import AnimatedInput from '../../components/AnimatedInput'
 
 const ContactWrapper = styled.section`
-  background: #f3f4f0;
   padding-top: 100px;
-`;
+`
 
 const Grid = styled.div`
+  background: url('images/contact-telephone.png');
   background-size: cover;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
@@ -17,10 +17,8 @@ const Grid = styled.div`
   height: 100%;
 
   @media (max-width: 800px) {
-    background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    );
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+      url('images/contact-telephone.png');
     background-size: contain;
     background-repeat: no-repeat;
     mix-blend-mode: multiply;
@@ -37,19 +35,15 @@ const Grid = styled.div`
     }
   }
   & .direction {
-    font-family: "Crimson Text";
+    font-family: 'Crimson Text';
     font-size: 1.38rem;
-    grid-column: 11 / 14;
+    grid-column: 5 / 8;
     grid-row: 5 / 6;
     margin: 20px 0;
     text-align: right;
     @media (max-width: 800px) {
       grid-column: 2 / 8;
     }
-  }
-  & .map {
-    grid-column: 9 / -1;
-    grid-row: 2 / 5;
   }
   & img {
     grid-column: 5 / 8;
@@ -60,18 +54,17 @@ const Grid = styled.div`
       display: none;
     }
   }
-`;
+`
 
 const Form = styled.form`
-  grid-column: 2 / 8;
-  grid-row: 2 / 5;
+  grid-column: 3 / 13;
+  grid-row: 3 / 5;
   position: relative;
-  margin: 0;
   @media (max-width: 800px) {
     grid-column: 1 / 15;
     grid-row: 2 / 4;
   }
-`;
+`
 
 const FormBody = styled.div`
   background: lightgray;
@@ -80,13 +73,13 @@ const FormBody = styled.div`
   justify-content: space-around;
   padding: 30px 0;
   margin: 0;
-  width: 98%;
+  width: 90%;
   height: 95%;
   @media (max-width: 800px) {
     flex-direction: column;
     padding: 0 1rem;
   }
-`;
+`
 
 const Submit = styled.input`
   position: absolute;
@@ -104,7 +97,17 @@ const Submit = styled.input`
   &:hover {
     background: #111;
   }
-`;
+`
+
+const Map = styled.div`
+  position: relative;
+  height: 50vh;
+  padding: 0;
+
+  iframe {
+    clip-path: ellipse(82% 65% at 49% 65%);
+  }
+`
 
 const Contact = () => (
   <ContactWrapper id="contact">
@@ -117,11 +120,7 @@ const Contact = () => (
         <br />
         Talk?
       </h1>
-      <Form
-        className="form"
-        action="https://formspree.io/info@estudioyobo.com"
-        method="POST"
-      >
+      <Form className="form" action="https://formspree.io/info@estudioyobo.com" method="POST">
         <FormBody>
           <div>
             <AnimatedInput name="name" required />
@@ -135,16 +134,7 @@ const Contact = () => (
         </FormBody>
         <Submit type="submit" value="Enviar" />
       </Form>
-      <div className="map">
-        <iframe
-          title="OSM location map"
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          allowFullScreen
-          src="https://umap.openstreetmap.fr/es/map/mapa-sin-titulo_246982?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false"
-        />
-      </div>
+
       <div className="direction">
         Elche - Alicante
         <br />
@@ -153,7 +143,17 @@ const Contact = () => (
         <br />
       </div>
     </Grid>
+    <Map>
+      <iframe
+        title="OSM location map"
+        width="100%"
+        height="100%"
+        frameBorder="0"
+        allowFullScreen
+        src="https://umap.openstreetmap.fr/es/map/mapa-sin-titulo_246982?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false"
+      />
+    </Map>
   </ContactWrapper>
-);
+)
 
-export default Contact;
+export default Contact

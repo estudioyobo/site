@@ -39,8 +39,8 @@ export const Description = styled.div`
 export const Services = styled.ul`
   grid-row: 3 / 6;
   grid-column: ${({ right }) => (right ? '1 / 9' : '7 / 15')};
-  background: #333;
-  color: white;
+  background: var(--color-black);
+  color: var(--color-white);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 80px 80px 40px;
@@ -72,7 +72,7 @@ export const ServiceItem = styled.li`
 
   & > ul {
     font-size: 0.65em;
-    color: white;
+    color: var(--color-white);
     list-style: none;
     margin: 10px 0;
   }

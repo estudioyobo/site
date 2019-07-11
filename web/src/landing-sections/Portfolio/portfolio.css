@@ -13,5 +13,5 @@
 .slick-arrow {
   bottom: -45px !important;
   top: auto;
-  filter: drop-shadow(2px 4px 6px #333);
+  filter: drop-shadow(2px 4px 6px var(--color-black));
 }

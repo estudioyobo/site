@@ -25,9 +25,9 @@
 }
 
 .hero--contact {
-  background: #333;
+  background: var(--color-black);
   grid-area: contact;
-  color: white;
+  color: var(--color-white);
   text-decoration: none;
   text-align: center;
   font-size: 1.6em;

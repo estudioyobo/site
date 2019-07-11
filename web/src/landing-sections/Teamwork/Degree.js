@@ -9,7 +9,7 @@ const DegreeWrapper = styled.div`
   }
 `
 const DegreeUniversity = styled.div`
-  color: #56ef98;
+  color: var(--color-accent);
   font-family: 'Crimson Text';
   font-size: 1.6em;
 `
