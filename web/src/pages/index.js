@@ -114,6 +114,8 @@ const sections = [
   }
 ]
 
+const heroImages = ['/images/home-1.svg', '/images/home-2.svg', '/images/home-3.svg']
+
 const IndexPage = props => {
   const { data, errors } = props
 
@@ -146,7 +148,7 @@ const IndexPage = props => {
         <Top />
         <SocialSide social={companyInfo.social} />
         <LandingMenu sections={sections} />
-        <Hero carousel={[]} />
+        <Hero carousel={heroImages} />
         <ServicesSection services={servicesNodes} />
         <Portfolio posts={projectNodes} />
         <Companies companies={clientNodes} />

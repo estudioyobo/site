@@ -1,12 +1,12 @@
 import React from 'react'
-import Img from 'gatsby-image'
+import Slider from 'react-slick'
 
 import './hero.css'
+import 'slick-carousel/slick/slick.css'
 
 const Hero = ({ carousel }) => {
   return (
     <section id='start' className='hero'>
-      <object data={carousel[0]} className='hero--caroussel' alt='decorative landing' />
       <h1>
         DISEÑO Y<br /> DESARROLLO
       </h1>
@@ -19,6 +19,11 @@ const Hero = ({ carousel }) => {
       <a href='#contact' className='hero--contact'>
         CONTACTO
       </a>
+      <Slider className='hero--caroussel' autoplay autoplaySpeed={4000}>
+        {carousel.map(image => (
+          <object data={image} alt='decorative landing' className='hero--caroussel-image' />
+        ))}
+      </Slider>
     </section>
   )
 }

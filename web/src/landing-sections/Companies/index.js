@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import Slider from "react-slick";
-import Company from "./company";
+import React from 'react'
+import styled from 'styled-components'
+import Slider from 'react-slick'
+import Company from './company'
 
-import "slick-carousel/slick/slick.css";
+import 'slick-carousel/slick/slick.css'
 
 const SectionWrapper = styled.section`
   background: #333;
@@ -13,11 +13,14 @@ const SectionWrapper = styled.section`
   @media (max-width: 800px) {
     padding: 50px;
   }
-`;
+  h1 {
+    font-size: 2.5em;
+  }
+`
 
 const Companies = ({ companies }) => (
-  <SectionWrapper id="companies">
-    <h1>Hemos trabajado para...</h1>
+  <SectionWrapper id='companies'>
+    <h1>Hemos trabajado con:</h1>
     <Slider
       dots={false}
       infinite
@@ -32,6 +35,6 @@ const Companies = ({ companies }) => (
       ))}
     </Slider>
   </SectionWrapper>
-);
+)
 
-export default Companies;
+export default Companies

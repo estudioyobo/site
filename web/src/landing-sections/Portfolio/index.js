@@ -31,7 +31,27 @@ class Portfolio extends Component {
     return (
       <section id='portfolio'>
         <SectionHeader title='portfolio' dividerColor='#56EF98' />
-        <Slider className='grid-wrapper' slidesToShow={2} arrows dots centerMode>
+        <Slider
+          className='grid-wrapper'
+          slidesToShow={3}
+          arrows
+          dots
+          centerMode
+          responsive={[
+            {
+              breakpoint: 1150,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]}
+        >
           {posts.map((post, i) => {
             const { id, thumbnail, _rawExcerpt, slug, publishedAt, categories, title } = post
             return (
