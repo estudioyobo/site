@@ -38,7 +38,7 @@ function Project (props) {
             )}
             {categories && (
               <div className={styles.categories}>
-                <h3 className={styles.categoriesHeadline}>Categories</h3>
+                <h3 className={styles.categoriesHeadline}>Categorías</h3>
                 <ul>
                   {categories.map(category => (
                     <li key={category._id}>{category.title}</li>
@@ -48,7 +48,7 @@ function Project (props) {
             )}
             {relatedProjects && (
               <div className={styles.relatedProjects}>
-                <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
+                <h3 className={styles.relatedProjectsHeadline}>Proyectos Relacionados</h3>
                 <ul>
                   {relatedProjects.map(project => (
                     <li key={`related_${project._id}`}>

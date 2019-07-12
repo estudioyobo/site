@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Placeholder = styled.span`
   opacity: ${({ opacity }) => opacity};
@@ -15,16 +15,16 @@ export const Placeholder = styled.span`
     flex: none;
     white-space: pre;
   }
-`;
+`
 
 export const Group = styled.div`
   width: 100%;
-  height: ${({ fullHeight }) => (fullHeight ? "100%" : "auto")};
+  height: ${({ fullHeight }) => (fullHeight ? '100%' : 'auto')};
   position: relative;
   display: flex;
   flex-direction: column;
   margin: 0 0 1.5rem 0;
-`;
+`
 
 export const Label = styled.label`
   display: block;
@@ -38,7 +38,7 @@ export const Label = styled.label`
     flex: none;
     white-space: pre;
   }
-`;
+`
 
 export const Input = styled.input`
   display: block;
@@ -49,7 +49,8 @@ export const Input = styled.input`
   background: white;
   position: relative;
   font-weight: bold;
-`;
+  box-sizing: border-box;
+`
 
 export const Textarea = styled.textarea`
   display: block;
@@ -61,4 +62,5 @@ export const Textarea = styled.textarea`
   background: white;
   position: relative;
   font-weight: bold;
-`;
+  box-sizing: border-box;
+`

@@ -32,6 +32,7 @@ const Description = styled.div`
   & > p {
     grid-column: 3 / 6;
     text-align: right;
+    font-weight: 200;
     @media (max-width: 800px) {
       grid-column: 2 / 6;
       font-size: 0.8rem;
@@ -62,10 +63,11 @@ const PersonTitle = styled.h3`
   grid-column: 9 / 15;
   grid-row: 2 / 3;
   text-align: center;
+  align-self: center;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
   display: none;
-  font-size: 2em;
+  font-size: 1.8em;
   margin: 0;
 
   &.active {
@@ -74,6 +76,7 @@ const PersonTitle = styled.h3`
   @media (max-width: 800px) {
     grid-column: 1 / 15;
     grid-row: 2 / 3;
+    font-size: 1em;
   }
 `
 
@@ -99,7 +102,6 @@ const Magic = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 50px;
   height: 100vh;
 `
 
@@ -194,6 +196,7 @@ class TeamWork extends Component {
               Creativo de naturaleza, especializado en branding e ilustraciones vectoriales. Capaz
               de encontrar el alma de la idea y explotarla al máximo.
             </p>
+            <Degree />
           </Description>
           <Order className='p3'>03</Order>
           <PersonTitle className='p3'>Ingeniero Informático</PersonTitle>

@@ -28,10 +28,11 @@ const Grid = styled.div`
     grid-row: 1 / 2;
     text-align: right;
     font-size: 5vw;
-    color: #d4d4d4;
+    color: var(--color-grey);
     @media (max-width: 800px) {
       grid-column: 1 / 14;
       font-size: 10vw;
+      color: var(--color-black);
     }
   }
   & .direction {
@@ -67,7 +68,7 @@ const Form = styled.form`
 `
 
 const FormBody = styled.div`
-  background: lightgray;
+  background: var(--color-grey);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -93,6 +94,7 @@ const Submit = styled.input`
   height: 12%;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  font-size: var(--font-base-size);
 
   &:hover {
     background: #111;
@@ -110,8 +112,8 @@ const Map = styled.div`
 `
 
 const Contact = () => (
-  <ContactWrapper id="contact">
-    <SectionHeader title="contacto" dividerColor="#56EF98" />
+  <ContactWrapper id='contact'>
+    <SectionHeader title='contacto' dividerColor='#56EF98' />
     <Grid>
       <h1>
         ¿Hablamos?
@@ -120,22 +122,22 @@ const Contact = () => (
         <br />
         Talk?
       </h1>
-      <Form className="form" action="https://formspree.io/info@estudioyobo.com" method="POST">
+      <Form className='form' action='https://formspree.io/info@estudioyobo.com' method='POST'>
         <FormBody>
           <div>
-            <AnimatedInput name="name" required />
-            <AnimatedInput name="email" required />
-            <AnimatedInput name="telephone" />
-            <AnimatedInput name="presupuesto" required />
+            <AnimatedInput name='name' required />
+            <AnimatedInput name='email' required />
+            <AnimatedInput name='telephone' />
+            <AnimatedInput name='presupuesto' required />
           </div>
           <div>
-            <AnimatedInput isTextarea name="message" required />
+            <AnimatedInput isTextarea name='message' required />
           </div>
         </FormBody>
-        <Submit type="submit" value="Enviar" />
+        <Submit type='submit' value='Enviar' />
       </Form>
 
-      <div className="direction">
+      <div className='direction'>
         Elche - Alicante
         <br />
         C/ Reina Victoria, 39. Planta 3<br />
@@ -145,12 +147,12 @@ const Contact = () => (
     </Grid>
     <Map>
       <iframe
-        title="OSM location map"
-        width="100%"
-        height="100%"
-        frameBorder="0"
+        title='OSM location map'
+        width='100%'
+        height='100%'
+        frameBorder='0'
         allowFullScreen
-        src="https://umap.openstreetmap.fr/es/map/mapa-sin-titulo_246982?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false"
+        src='https://umap.openstreetmap.fr/es/map/mapa-sin-titulo_246982?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false'
       />
     </Map>
   </ContactWrapper>

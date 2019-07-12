@@ -32,7 +32,12 @@ const Divider = styled.div`
   display: block;
   transform-origin: left;
   margin-right: 10px;
-  margin-bottom: -60px;
+  margin-bottom: -4vw;
+  @media (max-width: 800px) {
+    margin-bottom: -8vw;
+    width: 30%;
+    height: 12px;
+  }
 `
 
 const Title = styled.h1`
@@ -55,8 +60,11 @@ const Title = styled.h1`
 
 const Wrapper = styled.div`
   margin-top: 20px;
-  padding: 40px 0 0;
+  padding: 8vw 0 0;
   overflow: hidden;
+  @media (max-width: 800px) {
+    padding: 4vw 0 0;
+  }
   &.animated {
     ${Divider} {
       animation: ${widthAnim} 0.6s ease-in-out 0s forwards;

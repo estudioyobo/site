@@ -1,7 +1,17 @@
 import React from 'react'
 import SectionHeader from '../../components/SectionHeader'
 import ServiceHeader from './ServiceHeader'
-import { Grid, Description, Services, ServiceItem, Fill, Image, Picture, Space } from './Grid'
+import {
+  Grid,
+  Description,
+  Services,
+  ServiceItem,
+  Fill,
+  Image,
+  Picture,
+  Space,
+  Wrapper
+} from './Grid'
 
 import keyboardIMG from './keyboard.png'
 import keyboardIMGsmall from './keyboard-s.png'
@@ -11,9 +21,9 @@ const ServicesSection = ({ services }) => {
   const design = services.find(s => s._id === 'design')
   const development = services.find(s => s._id === 'development')
   return (
-    <section id='services' className='padding'>
+    <section id='services'>
       <SectionHeader title='Servicios' dividerColor='#56EF98' />
-      <div className='section-design'>
+      <Wrapper className='section-design'>
         <Grid>
           <ServiceHeader title='Diseño' />
           <Description>
@@ -32,7 +42,7 @@ const ServicesSection = ({ services }) => {
           <Fill />
           <Image src={pencilIMG} alt='A pencil' />
         </Grid>
-      </div>
+      </Wrapper>
       <div className='section-develop'>
         <Grid right>
           <ServiceHeader title='Desarrollo' left />

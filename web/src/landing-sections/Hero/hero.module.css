@@ -85,6 +85,7 @@
   .description {
     font-size: 5vw;
     padding: 0 10px;
+    text-align: right;
   }
   .carousel__image {
     height: 100%;

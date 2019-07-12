@@ -11,10 +11,12 @@ const DegreeWrapper = styled.div`
 const DegreeUniversity = styled.div`
   color: var(--color-accent);
   font-family: 'Crimson Text';
-  font-size: 1.6em;
+  font-size: 1.4em;
+  min-height: 1.4em;
 `
 const DegreeTitle = styled.div`
-  font-size: 1.4em;
+  font-size: 1.2em;
+  min-height: 1.2em;
 `
 
 const Degree = ({ title, university }) => (

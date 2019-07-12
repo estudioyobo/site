@@ -1,5 +1,11 @@
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+
+export const Wrapper = styled.div`
+  margin-top: 5em;
+  @media (max-width: 800px) {
+    margin-top: 2em;
+  }
+`
 
 export const Grid = styled.div`
   display: grid;
@@ -28,7 +34,7 @@ export const Description = styled.div`
   grid-row: 3;
   grid-column: ${({ right }) => (right ? '10 / 13' : '3 / 6')};
   margin-top: 10px;
-  font-size: 1.5em;
+  font-size: 1.3em;
 
   @media (max-width: 800px) {
     grid-column: ${({ right }) => (right ? '2 / 11' : '5 / 14')};
@@ -54,18 +60,6 @@ export const Services = styled.ul`
   }
 `
 
-export const ServiceCol1 = styled.div`
-  grid-column: ${({ right }) => (right ? '3 / 5' : '2 / 4')};
-  @media (max-width: 800px) {
-    grid-column: ${({ right }) => (right ? '2 / 4' : '2 / 4')};
-  }
-`
-export const ServiceCol2 = styled.div`
-  grid-column: ${({ right }) => (right ? '6 / 8' : '5 / 7')};
-  @media (max-width: 800px) {
-    grid-column: 5 / 7;
-  }
-`
 export const ServiceItem = styled.li`
   margin: 0 40px 40px 0;
   font-weight: bold;
@@ -73,6 +67,7 @@ export const ServiceItem = styled.li`
 
   & > ul {
     font-size: 0.65em;
+    font-weight: 400;
     color: var(--color-white);
     list-style: none;
     margin: 10px 0;
@@ -86,7 +81,7 @@ export const Image = styled.img`
   align-self: end;
   @media (max-width: 800px) {
     grid-row: 5 / 7;
-    grid-column: 1 / 8;
+    grid-column: 1 / 12;
   }
 `
 export const Picture = styled.picture`
@@ -105,7 +100,7 @@ export const Space = styled.div`
 export const Fill = styled.div`
   grid-row: ${({ right }) => (right ? '7 / 8' : '6 / 7')};
   grid-column: ${({ right }) => (right ? '6 / 10' : '2 / 7')};
-  background: lightgray;
+  background: var(--color-grey);
   height: 200px;
 
   @media (max-width: 800px) {
