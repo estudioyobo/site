@@ -14,6 +14,7 @@ const query = graphql`
       zipCode
       city
       country
+      email
       phone
       social {
         name

@@ -20,7 +20,7 @@ const Company = ({ name, icon, link }) => {
     <CompanyWrapper>
       {link ? (
         <a href={link}>
-          <Img src={logo} />
+          <Img src={logo} alt={name} />
         </a>
       ) : (
         <Img src={logo} />

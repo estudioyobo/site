@@ -48,11 +48,11 @@ footer {
 }
 
 .copyright {
-  font-family: "Crimson Text";
+  font-family: 'Crimson Text';
   margin-top: 20px;
 }
 .made {
-  font-family: "Crimson Text";
+  font-family: 'Crimson Text';
   font-size: 1.5rem;
 }
 
@@ -82,5 +82,8 @@ footer {
   }
   .row.margin {
     margin-bottom: 60px;
+  }
+  .footer-links li {
+    min-height: 48px;
   }
 }

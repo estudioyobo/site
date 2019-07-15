@@ -12,12 +12,14 @@ const Emph = styled.span`
   display: none;
 `
 
-const Item = styled.a`
+const Item = styled.li`
   margin-bottom: 1rem;
-  color: black;
-  text-decoration: none;
   display: block;
   mix-blend-mode: multiply;
+  a {
+    color: black;
+    text-decoration: none;
+  }
   &.selected {
     font-weight: 800;
     margin-left: 0.2rem;
@@ -35,12 +37,14 @@ const Item = styled.a`
 `
 
 const LandingMenu = ({ sections }) => (
-  <Scrollspy items={sections.map(s => s.id)} currentClassName='selected' className={styles.nav}>
+  <Scrollspy items={sections.map(s => s.id)} currentClassName="selected" className={styles.nav}>
     {sections.map((section, i) => (
-      <Item key={section} href={`#${section.id}`}>
-        <span>{i}</span>
-        <Emph>.-</Emph>
-        <Name>{section.name}</Name>
+      <Item key={section}>
+        <a href={`#${section.id}`}>
+          <span>{i}</span>
+          <Emph>.-</Emph>
+          <Name>{section.name}</Name>
+        </a>
       </Item>
     ))}
   </Scrollspy>

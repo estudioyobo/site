@@ -14,6 +14,7 @@ const AnimatedInput = ({ name, required, isTextarea, type = 'text' }) => {
       </Label>
       <Comp
         name={name}
+        id={name}
         type={type}
         required={required}
         ref={input}

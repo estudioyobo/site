@@ -8,40 +8,40 @@ import Social from '../Social'
 const Footer = ({ companyInfo }) => {
   return (
     <footer>
-      <div className='row margin equal elements'>
-        <ul className='footer-links'>
+      <div className="row margin equal elements">
+        <ul className="footer-links">
           <li>
-            <AnimatedLink href='/privacy'>Política de privacidad</AnimatedLink>
+            <AnimatedLink href="/privacy">Política de privacidad</AnimatedLink>
           </li>
           <li>
-            <AnimatedLink href='/legal'>Aviso Legal</AnimatedLink>
+            <AnimatedLink href="/legal">Aviso Legal</AnimatedLink>
           </li>
           <li>
-            <AnimatedLink href='/404'>Error 404</AnimatedLink>
+            <AnimatedLink href="/404">Error 404</AnimatedLink>
           </li>
         </ul>
-        <div className='footer-contact'>
-          <div className='footer-contact--social'>
+        <div className="footer-contact">
+          <div className="footer-contact--social">
             {companyInfo.social.map((e, i) => (
               <Social key={i} {...e} />
             ))}
           </div>
-          <div className='footer-contact--mail'>
+          <div className="footer-contact--mail">
             <AnimatedLink href={`mailto:${companyInfo.email}`}>{companyInfo.email}</AnimatedLink>
           </div>
-          <div className='footer-phone'>
+          <div className="footer-phone">
             <AnimatedLink href={`tel:${companyInfo.phone}`}>{companyInfo.phone}</AnimatedLink>
           </div>
         </div>
-        <div className='footer-logo'>
-          <Logo color='#F3F4F0' width='200px' />
+        <div className="footer-logo">
+          <Logo color="#F3F4F0" width="200px" />
         </div>
       </div>
-      <div className='row'>
-        <div className='made'>Made with &#x2764; by Estudio Yobo</div>
+      <div className="row">
+        <div className="made">Made with &#x2764; by Estudio Yobo</div>
       </div>
-      <div className='row'>
-        <div className='copyright'>Copyright &copy; 2019. Estudio Yobo</div>
+      <div className="row">
+        <div className="copyright">Copyright &copy; 2019. Estudio Yobo</div>
       </div>
     </footer>
   )
