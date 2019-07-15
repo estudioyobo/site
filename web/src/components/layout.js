@@ -5,9 +5,9 @@ import '../styles/layout.css'
 import styles from './layout.module.css'
 import Footer from './Footer'
 
-const Layout = ({ children, companyInfo, showNav }) => (
+const Layout = ({ children, companyInfo }) => (
   <>
-    {showNav && <Header />}
+    <Header />
     <main className={styles.content}>{children}</main>
     {companyInfo && <Footer companyInfo={companyInfo} />}
   </>

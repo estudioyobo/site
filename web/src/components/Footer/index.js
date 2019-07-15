@@ -11,10 +11,10 @@ const Footer = ({ companyInfo }) => {
       <div className='row margin equal elements'>
         <ul className='footer-links'>
           <li>
-            <AnimatedLink href='#'>Política de privacidad</AnimatedLink>
+            <AnimatedLink href='/privacy'>Política de privacidad</AnimatedLink>
           </li>
           <li>
-            <AnimatedLink href='#'>Política de cookies</AnimatedLink>
+            <AnimatedLink href='/legal'>Aviso Legal</AnimatedLink>
           </li>
           <li>
             <AnimatedLink href='/404'>Error 404</AnimatedLink>
@@ -41,7 +41,7 @@ const Footer = ({ companyInfo }) => {
         <div className='made'>Made with &#x2764; by Estudio Yobo</div>
       </div>
       <div className='row'>
-        <div className='copyright'>Copyright &copy; 2018. Estudio Yobo</div>
+        <div className='copyright'>Copyright &copy; 2019. Estudio Yobo</div>
       </div>
     </footer>
   )

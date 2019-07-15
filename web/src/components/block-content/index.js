@@ -2,6 +2,7 @@ import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
 import Figure from './figure'
 import Slideshow from './slideshow'
+import Table from './table'
 
 import typography from '../typography.module.css'
 
@@ -33,6 +34,9 @@ const serializers = {
     },
     slideshow (props) {
       return <Slideshow {...props.node} />
+    },
+    table (props) {
+      return <Table {...props.node} />
     }
   }
 }
