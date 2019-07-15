@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string'
     },
     {
@@ -20,18 +20,18 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Fecha de publicación',
       description: 'You can use this field to schedule post where you show them',
       type: 'datetime'
     },
     {
       name: 'excerpt',
-      title: 'Excerpt',
+      title: 'Descripción',
       type: 'blockText'
     },
     {
       name: 'authors',
-      title: 'Authors',
+      title: 'Autores',
       type: 'array',
       of: [{ type: 'postAuthor' }]
     },
@@ -42,13 +42,13 @@ export default {
     },
     {
       name: 'categories',
-      title: 'Categories',
+      title: 'Categorías',
       type: 'array',
       of: [{ type: 'reference', to: { type: 'category' } }]
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Contenido',
       type: 'blockContent'
     }
   ],

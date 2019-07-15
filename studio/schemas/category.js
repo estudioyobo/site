@@ -1,4 +1,4 @@
-import { MdApps } from 'react-icons/md'
+import { MdApps } from 'react-icons/md';
 
 export default {
   name: 'category',
@@ -8,12 +8,12 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string'
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Descripción',
       type: 'text'
     }
   ],

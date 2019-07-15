@@ -10,7 +10,7 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Company name',
+      title: 'Nombre Empresa',
       type: 'string'
     },
     {
@@ -20,32 +20,32 @@ export default {
     },
     {
       name: 'address1',
-      title: 'Address 1',
+      title: 'Dirección 1',
       type: 'string'
     },
     {
       name: 'address2',
-      title: 'Address 2',
+      title: 'Dirección 2',
       type: 'string'
     },
     {
       name: 'zipCode',
-      title: 'ZIP Code',
+      title: 'Código Postal',
       type: 'string'
     },
     {
       name: 'city',
-      title: 'City',
+      title: 'Ciudad',
       type: 'string'
     },
     {
       name: 'country',
-      title: 'Country',
+      title: 'País',
       type: 'string'
     },
     {
       name: 'phone',
-      title: 'Phone',
+      title: 'Teléfono',
       type: 'string'
     },
     {

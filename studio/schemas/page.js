@@ -7,12 +7,12 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string'
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Contenido',
       type: 'blockContent'
     }
   ]

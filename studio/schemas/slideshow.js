@@ -6,7 +6,7 @@ export default {
     {
       type: 'string',
       name: 'title',
-      title: 'Title'
+      title: 'Título'
     },
     {
       type: 'array',

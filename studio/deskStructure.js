@@ -17,10 +17,10 @@ const hiddenTypes = [
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('Contenido')
     .items([
       S.listItem()
-        .title('Site Settings')
+        .title('Información de la Página')
         .child(
           S.editor()
             .id('siteSettings')
@@ -29,7 +29,7 @@ export default () =>
         )
         .icon(MdSettings),
       S.listItem()
-        .title('Company Info')
+        .title('Información de Empresa')
         .child(
           S.editor()
             .id('companyInfo')
@@ -38,7 +38,7 @@ export default () =>
         )
         .icon(MdBusiness),
       S.listItem()
-        .title('Projects')
+        .title('Proyectos')
         .schemaType('project')
         .child(S.documentTypeList('project')),
       S.listItem()
@@ -46,39 +46,39 @@ export default () =>
         .schemaType('post')
         .child(S.documentTypeList('post').title('Blog posts')),
       S.listItem()
-        .title('Pages')
+        .title('Páginas')
         .child(
           S.list()
-            .title('Pages')
+            .title('Páginas')
             .items([
               S.listItem()
-                .title('About')
+                .title('Aviso Legal')
                 .child(
                   S.editor()
-                    .id('aboutPage')
+                    .id('legalPage')
                     .schemaType('page')
-                    .documentId('about')
+                    .documentId('legal')
                 )
                 .icon(FaFile),
               S.listItem()
-                .title('Contact')
+                .title('Política de Privacidad')
                 .child(
                   S.editor()
-                    .id('contactPage')
+                    .id('privacyPage')
                     .schemaType('page')
-                    .documentId('contact')
+                    .documentId('privacy')
                 )
                 .icon(FaFile)
             ])
         ),
       S.listItem()
-        .title('Services')
+        .title('Servicios')
         .child(
           S.list()
-            .title('Services')
+            .title('Servicios')
             .items([
               S.listItem()
-                .title('Design')
+                .title('Diseño')
                 .child(
                   S.editor()
                     .id('designService')
@@ -87,7 +87,7 @@ export default () =>
                 )
                 .icon(FaPenFancy),
               S.listItem()
-                .title('Development')
+                .title('Desarrollo')
                 .child(
                   S.editor()
                     .id('developmentService')
@@ -99,16 +99,16 @@ export default () =>
         )
         .icon(FaInfoCircle),
       S.listItem()
-        .title('Clients')
+        .title('Clientes')
         .schemaType('client')
         .child(S.documentTypeList('client').title('Clients')),
       S.listItem()
-        .title('People')
+        .title('Nosotros')
         .schemaType('person')
         .child(S.documentTypeList('person').title('People')),
       S.listItem()
-        .title('Categories')
+        .title('Categorías')
         .schemaType('category')
-        .child(S.documentTypeList('category').title('Categories')),
+        .child(S.documentTypeList('category').title('Categorías')),
       ...S.documentTypeListItems().filter(listItem => !hiddenTypes.includes(listItem.getId()))
     ])

@@ -4,7 +4,7 @@ export default {
   title: 'Post author',
   fields: [
     {
-      title: 'Person',
+      title: 'Persona',
       name: 'person',
       type: 'reference',
       to: { type: 'person' }

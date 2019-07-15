@@ -1,4 +1,4 @@
-import { MdSettings } from 'react-icons/md'
+import { MdSettings } from 'react-icons/md';
 
 export default {
   name: 'siteSettings',
@@ -10,17 +10,17 @@ export default {
   fields: [
     {
       name: 'title',
-      title: 'Title',
+      title: 'Título',
       type: 'string'
     },
     {
       name: 'description',
-      title: 'Description',
+      title: 'Descripción',
       type: 'text'
     },
     {
       name: 'keywords',
-      title: 'Keywords',
+      title: 'Palabras Clave',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
@@ -29,7 +29,7 @@ export default {
     },
     {
       name: 'author',
-      title: 'Author',
+      title: 'Autor',
       type: 'string'
     }
   ]

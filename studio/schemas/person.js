@@ -1,4 +1,4 @@
-import { MdPerson } from 'react-icons/md'
+import { MdPerson } from 'react-icons/md';
 
 export default {
   name: 'person',
@@ -9,7 +9,7 @@ export default {
   fields: [
     {
       name: 'name',
-      title: 'Name',
+      title: 'Nombre',
       type: 'string'
     },
     {
@@ -24,7 +24,7 @@ export default {
     },
     {
       name: 'image',
-      title: 'Image',
+      title: 'Imagen',
       type: 'image',
       options: {
         hotspot: true

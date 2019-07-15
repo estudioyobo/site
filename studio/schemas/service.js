@@ -7,12 +7,12 @@ export default {
   fields: [
     {
       name: 'description',
-      title: 'Description',
+      title: 'Descripción',
       type: 'text'
     },
     {
       name: 'elements',
-      title: 'Elements',
+      title: 'Elementos',
       type: 'array',
       of: [{ type: 'serviceElement' }]
     }

@@ -1,4 +1,4 @@
-import { FaExternalLinkAlt } from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -75,6 +75,9 @@ export default {
     },
     {
       type: 'slideshow'
+    },
+    {
+      type: 'table'
     }
   ]
 }
