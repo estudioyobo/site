@@ -25,6 +25,7 @@ const Companies = ({ companies }) => (
       autoplay
       autoplaySpeed={2300}
       centerMode
+      pauseOnHover={false}
       slidesToShow={3}
       arrows={false}
       responsive={[

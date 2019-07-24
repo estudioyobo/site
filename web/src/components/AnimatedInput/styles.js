@@ -57,7 +57,7 @@ export const Textarea = styled.textarea`
   font-size: 1.25rem;
   padding: 0.5rem;
   width: 100%;
-  height: 100%;
+  height: 175px;
   border: 0;
   background: white;
   position: relative;

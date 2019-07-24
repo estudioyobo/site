@@ -8,7 +8,7 @@ const AnimatedInput = ({ name, required, isTextarea, type = 'text' }) => {
 
   const Comp = isTextarea ? Textarea : Input
   return (
-    <Group fullHeight={isTextarea}>
+    <Group fullHeight={false}>
       <Label htmlFor={name} ref={label}>
         {name}:
       </Label>

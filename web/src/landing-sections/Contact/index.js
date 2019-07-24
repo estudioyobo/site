@@ -3,17 +3,16 @@ import styled from 'styled-components'
 import SectionHeader from '../../components/SectionHeader'
 
 import AnimatedInput from '../../components/AnimatedInput'
+import AnimatedSelect from '../../components/AnimatedInput/Select'
 
-const ContactWrapper = styled.section`
-  padding-top: 100px;
-`
+const ContactWrapper = styled.section``
 
 const Grid = styled.div`
   background: url('images/contact-telephone.png');
   background-size: cover;
   display: grid;
   grid-template-columns: repeat(14, 1fr);
-  grid-template-rows: 1fr 200px auto auto auto;
+  grid-template-rows: 1fr 100px auto auto auto;
   height: 100%;
 
   @media (max-width: 800px) {
@@ -28,6 +27,7 @@ const Grid = styled.div`
     grid-row: 1 / 2;
     text-align: right;
     font-size: 5vw;
+    margin: 0;
     color: var(--color-grey);
     @media (max-width: 800px) {
       grid-column: 1 / 14;
@@ -69,9 +69,10 @@ const Form = styled.form`
 
 const FormBody = styled.div`
   background: var(--color-grey);
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   padding: 30px 0;
   margin: 0;
   width: 90%;
@@ -125,13 +126,26 @@ const Contact = () => (
       <Form className='form' action='https://formspree.io/info@estudioyobo.com' method='POST'>
         <FormBody>
           <div>
-            <AnimatedInput name='name' required />
-            <AnimatedInput name='email' required />
-            <AnimatedInput name='telephone' />
-            <AnimatedInput name='presupuesto' required />
+            <AnimatedInput name='nombre' required />
+            <AnimatedInput name='email' type='email' required />
+            <AnimatedInput name='teléfono' />
+            <AnimatedSelect name='presupuesto'>
+              <option value='s'>[S] 100€-500€</option>
+              <option value='m'>[M] 500€-1000€</option>
+              <option value='l'>[L] 1000€-5000€</option>
+              <option value='xl'>[XL] 5000€-10000€</option>
+              <option value='xxl'>[XXL] 10000€ +</option>
+            </AnimatedSelect>
           </div>
           <div>
-            <AnimatedInput isTextarea name='message' required />
+            <AnimatedInput isTextarea name='mensaje' required />
+            <AnimatedSelect name='¿Cómo nos has conocido?'>
+              <option value='anuncio'>Anuncio</option>
+              <option value='buscador'>Buscador</option>
+              <option value='amigo'>Un Amigo</option>
+              <option value='rrss'>Redes Sociales</option>
+              <option value='otro'>Otro</option>
+            </AnimatedSelect>
           </div>
         </FormBody>
         <Submit type='submit' value='Enviar' />

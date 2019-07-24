@@ -20,7 +20,7 @@
   z-index: 1;
   grid-column: 3 / -1;
   grid-row: 2 / 3;
-  color: #f3f4f0;
+  color: var(--color-white);
   padding: 0 1rem;
   text-align: right;
   background: rgba(51, 51, 51, 0.7);
@@ -44,7 +44,8 @@
   grid-column: 1 / 4;
   grid-row: 4 / -1;
   padding: 10px 1rem;
-  background: #56ef98;
+  background: var(--color-grey);
+  color: var(--color-black);
 }
 
 .info p {

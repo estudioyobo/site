@@ -3,16 +3,16 @@
 }
 
 .slick-prev {
-  left: 30px !important;
+  left: 30% !important;
 }
 
 .slick-next {
-  right: 30px !important;
+  right: 30% !important;
 }
 
 .slick-arrow {
   bottom: -45px !important;
-  top: auto;
-  filter: drop-shadow(2px 4px 6px var(--color-black));
+  top: auto !important;
+  filter: drop-shadow(0px 0px 0px var(--color-black));
   z-index: 1;
 }
