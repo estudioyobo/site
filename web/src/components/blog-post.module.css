@@ -1,7 +1,8 @@
 @import '../styles/media-queries.css';
 @import '../styles/vars.css';
 
-.root {}
+.root {
+}
 
 .title {
   composes: responsiveTitle1 from './typography.module.css';

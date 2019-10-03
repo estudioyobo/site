@@ -30,6 +30,7 @@
 .excerpt {
   @nest & p {
     margin: 0.5em 0;
+    font-size: var(--font-small-size) !important;
   }
 
   @nest & strong {

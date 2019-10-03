@@ -13,7 +13,7 @@ function BlogPost (props) {
   return (
     <article className={styles.root}>
       {cover && cover.asset && (
-        <div className={styles.cover}>
+        <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(cover))
               .width(1200)
