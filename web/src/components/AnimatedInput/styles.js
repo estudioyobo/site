@@ -46,7 +46,7 @@ export const Input = styled.input`
   padding: 0.5rem;
   width: 100%;
   border: 0;
-  background: white;
+  background: ${({ dark }) => (dark ? 'none' : 'white')};
   position: relative;
   font-weight: bold;
   box-sizing: border-box;
@@ -59,7 +59,7 @@ export const Textarea = styled.textarea`
   width: 100%;
   height: 175px;
   border: 0;
-  background: white;
+  background: ${({ dark }) => (dark ? 'none' : 'white')};
   position: relative;
   font-weight: bold;
   box-sizing: border-box;

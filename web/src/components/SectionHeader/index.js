@@ -92,12 +92,14 @@ function useHookWithRefCallback () {
   return [setRef]
 }
 
-function SectionHeader ({ title, subtitle, color, dividerColor }) {
+function SectionHeader ({ title, subtitle, color, dividerColor, styles = {} }) {
   const [ref] = useHookWithRefCallback()
   return (
-    <Wrapper ref={ref}>
-      <Divider color={dividerColor} />
-      <Title color={color}>{title}</Title>
+    <Wrapper ref={ref} style={styles.container}>
+      <Divider color={dividerColor} style={styles.divider} />
+      <Title color={color} style={styles.title}>
+        {title}
+      </Title>
     </Wrapper>
   )
 }

@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { graphql } from 'gatsby'
+import Modal from 'react-modal'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import Top from '../components/Top'
 import GraphQLErrorList from '../components/graphql-error-list'
+import Newsletter from '../components/newsletter'
 import SEO from '../components/seo'
 import LandingMenu from '../components/LandingMenu'
 import Portfolio from '../landing-sections/Portfolio'
@@ -18,6 +20,8 @@ import './index.css'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+
+Modal.setAppElement("#___gatsby")
 
 export const query = graphql`
   query IndexPageQuery {
@@ -121,6 +125,25 @@ const heroImages = ['/images/home-1.svg', '/images/home-2.svg', '/images/home-3.
 
 const IndexPage = props => {
   const { data, errors } = props
+  const [newsletter, setNewsletter] = useState(false)
+
+  function showNewsletter (e) {
+    if (
+      e.clientY <= 0 ||
+      e.clientX <= 0 ||
+      e.clientX >= window.innerWidth ||
+      e.clientY >= window.innerHeight
+    ) {
+      setNewsletter(true)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mouseout', showNewsletter)
+    return () => {
+      document.removeEventListener('mouseout', showNewsletter)
+    }
+  }, [showNewsletter])
 
   if (errors) {
     return (
@@ -157,6 +180,9 @@ const IndexPage = props => {
       <Companies companies={clientNodes} />
       <TeamWork />
       <Contact />
+      <Modal isOpen={newsletter} onRequestClose={() => setNewsletter(false)} closeTimeoutMS={300}>
+        <Newsletter title="Suscríbete a la newsletter" subtitle='y entérate de noticias del mundo del diseño y desarrollo del mundo digital' path='popup' />
+      </Modal>
     </Layout>
   )
 }

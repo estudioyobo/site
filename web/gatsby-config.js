@@ -28,6 +28,13 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint:
+          'https://estudioyobo.us19.list-manage.com/subscribe/post?u=87bf200f30b4de8d5a6b1b0cf&amp;id=925e8af270'
+      }
+    },
+    {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId,

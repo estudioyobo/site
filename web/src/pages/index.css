@@ -16,6 +16,31 @@ section {
   overflow: hidden;
 }
 
+.ReactModal__Overlay {
+
+background-color: transparent !important;
+z-index: 200;
+
+}
+.ReactModal__Content {
+    left: 40%  !important;
+    top: auto  !important;
+    box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 820px) {
+  .ReactModal__Content {
+      left: 10px  !important;
+  }
+}
+@media (max-width: 600px) {
+  .ReactModal__Content {
+      left: 10px !important;
+      right: 10px !important;
+      bottom: 10px !important;
+  }
+}
+
 :root {
   --header-height: 100px;
 }
