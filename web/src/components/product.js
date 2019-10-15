@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-console.log(process.env)
 
 const Grid = styled.article`
   display: grid;
