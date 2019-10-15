@@ -16,9 +16,9 @@ export const Button = styled.button`
   grid-column: 1/-1;
   width: 100%;
   text-transform: uppercase;
-  font-size: ${({small}) =>small ? "1.1rem" : "1.5rem"};
+  font-size: ${({ small }) => (small ? '1.1rem' : '1.5rem')};
   font-weight: 600;
-  padding: ${({small}) =>small ? ".6rem" : "1rem"};
+  padding: ${({ small }) => (small ? '.6rem' : '1rem')};
   @media (max-width: 600px) {
     grid-row: 4;
   }
@@ -32,7 +32,7 @@ const Form = styled.div`
     grid-column: 1 / 3;
     grid-row: 3;
   }
-  `
+`
 
 const Text = styled.h2`
   grid-row: 1;
@@ -102,39 +102,40 @@ const Newsletter = ({ title, subtitle, image, path, dark }) => {
       <Test>
         <SectionHeader
           title={title}
-          dividerColor="#56EF98"
-          styles={{
-            title: { fontSize: '2rem', margin: '0.67em 0' },
-            container: { margin: 0, padding: 0 }
-          }}
+          dividerColor='#56EF98'
+          // styles={{
+          //   title: { fontSize: '2rem', margin: '0.67em 0' },
+          //   container: { margin: 0, padding: 0 }
+          // }}
+          small
         />
         <NewsletterStyled onSubmit={subscribe}>
           {subtitle && <Text>{subtitle}</Text>}
           <Form>
             <AnimatedInput
               required
-              name="FNAME"
-              label="nombre"
+              name='FNAME'
+              label='nombre'
               dark={dark}
               styles={{ input: { border: 'solid 1px #333' } }}
             />
             <AnimatedInput
               required
-              name="LNAME"
-              label="apellidos"
+              name='LNAME'
+              label='apellidos'
               dark={dark}
               styles={{ input: { border: 'solid 1px #333' } }}
             />
             <AnimatedInput
               required
-              name="mail"
-              type="mail"
+              name='mail'
+              type='mail'
               dark={dark}
               styles={{ input: { border: 'solid 1px #333' } }}
             />
           </Form>
-          <Button type="submit">Suscribirse</Button>
-          <Image src={image || "/images/consultoria.svg"} />
+          <Button type='submit'>Suscribirse</Button>
+          <Image src={image || '/images/consultoria.svg'} />
         </NewsletterStyled>
       </Test>
     )

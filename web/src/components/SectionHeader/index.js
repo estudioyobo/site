@@ -47,9 +47,9 @@ const Title = styled.h1`
   opacity: 0;
   font-weight: 500;
   text-transform: lowercase;
-  margin: 0 0 0px 50px;
-  font-size: 4.7vw;
-  line-height: 4.2vw;
+  margin: ${({ small }) => (small ? '0.67em 0' : '0 0 0px 50px')};
+  font-size: ${({ small }) => (small ? '2.7vw' : '4.7vw')};
+  line-height: ${({ small }) => (small ? '2.2vw' : '4.2vw')};
   z-index: 1;
 
   @media (max-width: 800px) {
@@ -59,8 +59,8 @@ const Title = styled.h1`
 `
 
 const Wrapper = styled.div`
-  margin-top: 20px;
-  padding: 8vw 0 0;
+  margin-top: ${({ small }) => (small ? '0' : '20px')};
+  padding: ${({ small }) => (small ? '4vw 0 0' : '8vw 0 0')};
   overflow: hidden;
   @media (max-width: 800px) {
     padding: 4vw 0 0;
@@ -92,12 +92,12 @@ function useHookWithRefCallback () {
   return [setRef]
 }
 
-function SectionHeader ({ title, subtitle, color, dividerColor, styles = {} }) {
+function SectionHeader ({ title, subtitle, color, dividerColor, small, styles = {} }) {
   const [ref] = useHookWithRefCallback()
   return (
-    <Wrapper ref={ref} style={styles.container}>
-      <Divider color={dividerColor} style={styles.divider} />
-      <Title color={color} style={styles.title}>
+    <Wrapper ref={ref} style={styles.container} small={small}>
+      <Divider color={dividerColor} style={styles.divider} small={small} />
+      <Title color={color} style={styles.title} small={small}>
         {title}
       </Title>
     </Wrapper>

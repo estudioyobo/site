@@ -25,6 +25,11 @@ const Subtitle = styled.p`
   color: var(--color-black);
 `
 
+const Img = styled.img`
+  width: 100%;
+  object-fit: cover;
+`
+
 const formatPrice = (amount, currency) => {
   let price = (amount / 100).toFixed(2)
   let numberFormat = new Intl.NumberFormat(['es-ES'], {
@@ -37,7 +42,7 @@ const formatPrice = (amount, currency) => {
 const SkuCard = ({ sku }) => {
   return (
     <Link style={cardStyles} to={`/product/${sku.id}`}>
-      {sku.image && <img src={sku.image} alt='' width='100%' />}
+      {sku.image && <Img src={sku.image} alt={sku.product.name} />}
       <Title>{sku.product.name}</Title>
       <Subtitle>Precio: {formatPrice(sku.price, sku.currency)}</Subtitle>
     </Link>
