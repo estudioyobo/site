@@ -129,16 +129,22 @@ function animateCircles (svg) {
   }
 }
 
+function animate (doc) {
+  animateSquares(doc)
+  animateDots(doc)
+  animateClouds(doc)
+  animateCode(doc)
+  animateArrows(doc)
+  animateLine(doc)
+  animateCircles(doc)
+}
+
 function init (obj) {
-  // obj.addEventListener('load', () => {
-  animateSquares(obj.contentDocument)
-  animateDots(obj.contentDocument)
-  animateClouds(obj.contentDocument)
-  animateCode(obj.contentDocument)
-  animateArrows(obj.contentDocument)
-  animateLine(obj.contentDocument)
-  animateCircles(obj.contentDocument)
-  // })
+  const hasSVG = obj.querySelector('svg')
+  if (hasSVG) animate(obj.contentDocument)
+  obj.addEventListener('load', () => {
+    animate(obj.contentDocument)
+  })
 }
 
 export default init

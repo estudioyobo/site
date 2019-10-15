@@ -10,6 +10,7 @@ const links = [
   { name: 'PORTFOLIO', link: '/#portfolio' },
   { name: 'EQUIPO', link: '/#team' },
   { name: 'BLOG', link: '/blog' },
+  { name: 'SHOP', link: '/shop' },
   { name: 'CONTACTO', link: '/#contact' }
 ]
 
