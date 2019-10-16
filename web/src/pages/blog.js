@@ -7,7 +7,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import { responsiveTitle1 } from '../components/typography.module.css'
+import SectionHeader from '../components/SectionHeader'
 
 export const query = graphql`
   query BlogPageQuery {
@@ -48,9 +48,12 @@ const BlogPage = props => {
 
   return (
     <Layout>
-      <SEO title='Blog' />
+      <SEO
+        title='Blog'
+        description='Tutoriales para Desarrollo, artículos de Diseño y de las últimas tecnologías, Lenguajes de Programación, trucos para Diseñadores... Mantente informado suscribiéndote a la Newsletter.'
+      />
       <Container>
-        <h1 className={responsiveTitle1}>Blog</h1>
+        <SectionHeader title='blog' dividerColor='#56EF98' />
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
