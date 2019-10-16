@@ -89,8 +89,9 @@ const Product = props => {
     event.preventDefault()
     const { error } = await stripe.redirectToCheckout({
       items: [{ sku: props.id, quantity: Number(quantity) }],
-      successUrl: `http://localhost:8000/page-2/`,
-      cancelUrl: `http://localhost:8000/advanced`
+      billingAddressCollection: 'required',
+      successUrl: `https://www.estudioyobo.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: `https://www.estudioyobo.com/404`
     })
     if (error) {
       console.warn('Error:', error)
