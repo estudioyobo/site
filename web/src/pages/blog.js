@@ -52,8 +52,8 @@ const BlogPage = props => {
         title='Blog'
         description='Tutoriales para Desarrollo, artículos de Diseño y de las últimas tecnologías, Lenguajes de Programación, trucos para Diseñadores... Mantente informado suscribiéndote a la Newsletter.'
       />
+      <SectionHeader title='blog' dividerColor='#56EF98' />
       <Container>
-        <SectionHeader title='blog' dividerColor='#56EF98' />
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
     </Layout>
