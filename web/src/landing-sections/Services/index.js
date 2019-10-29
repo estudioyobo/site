@@ -21,17 +21,17 @@ const ServicesSection = ({ services }) => {
   const design = services.find(s => s._id === 'design')
   const development = services.find(s => s._id === 'development')
   return (
-    <section id='services'>
-      <SectionHeader title='Servicios' dividerColor='#56EF98' />
-      <Wrapper className='section-design'>
+    <section id="services">
+      <SectionHeader title="Servicios" dividerColor="#56EF98" />
+      <Wrapper className="section-design">
         <Grid>
-          <ServiceHeader title='Diseño' />
+          <ServiceHeader title="Diseño" />
           <Description>
             <p>{design.description}</p>
           </Description>
           <Services>
             {design.elements.map(element => (
-              <ServiceItem>
+              <ServiceItem key={element.title}>
                 {element.title}
                 <ul>
                   <li>{element.description}</li>
@@ -40,18 +40,18 @@ const ServicesSection = ({ services }) => {
             ))}
           </Services>
           <Fill />
-          <Image src={pencilIMG} alt='A pencil' />
+          <Image src={pencilIMG} alt="A pencil" />
         </Grid>
       </Wrapper>
-      <div className='section-develop'>
+      <div className="section-develop">
         <Grid right>
-          <ServiceHeader title='Desarrollo' left />
+          <ServiceHeader title="Desarrollo" left />
           <Description right>
             <p>{development.description}</p>
           </Description>
           <Services right>
             {development.elements.map(element => (
-              <ServiceItem>
+              <ServiceItem key={element.title}>
                 {element.title}
                 <ul>
                   <li>{element.description}</li>
@@ -62,9 +62,9 @@ const ServicesSection = ({ services }) => {
           <Space rowStart={6} rowEnd={7} height={100} />
           <Fill right />
           <Picture>
-            <source media='(max-width: 800px)' srcSet={keyboardIMGsmall} />
-            <source media='(min-width: 801px)' srcSet={keyboardIMG} />
-            <img src={keyboardIMG} alt='A keyboard' />
+            <source media="(max-width: 800px)" srcSet={keyboardIMGsmall} />
+            <source media="(min-width: 801px)" srcSet={keyboardIMG} />
+            <img src={keyboardIMG} alt="A keyboard" />
           </Picture>
         </Grid>
       </div>

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useCartContext } from '../lib/cart'
 
 const Grid = styled.article`
   display: grid;
@@ -47,7 +48,7 @@ const Image = styled.img`
   grid-column: 1;
   width: 100%;
 `
-const Thumnails = styled.div`
+const Thumbnails = styled.div`
   grid-row: 5 / 6;
   grid-column: 1 / 3;
 `
@@ -71,32 +72,29 @@ const formatPrice = (amount, currency) => {
   return numberFormat.format(price)
 }
 
-function useStripe () {
-  const [stripe, setStripe] = useState(null)
-  useEffect(() => {
-    const stripe = window.Stripe(process.env.GATSBY_STRIPE_PUBLIC_KEY)
-    setStripe(stripe)
-  }, [])
-
-  return stripe
-}
-
 const Product = props => {
-  const stripe = useStripe()
   const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1)
+  const { addProduct } = useCartContext()
   async function redirectToCheckout (event) {
     event.preventDefault()
-    const { error } = await stripe.redirectToCheckout({
-      items: [{ sku: props.id, quantity: Number(quantity) }],
-      billingAddressCollection: 'required',
-      successUrl: `https://www.estudioyobo.com/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `https://www.estudioyobo.com/404`
+    // const { error } = await stripe.redirectToCheckout({
+    //   items: [{ sku: props.id, quantity: Number(quantity) }],
+    //   billingAddressCollection: 'required',
+    //   successUrl: `https://www.estudioyobo.com/success?session_id={CHECKOUT_SESSION_ID}`,
+    //   cancelUrl: `https://www.estudioyobo.com/404`
+    // })
+    // if (error) {
+    //   console.warn('Error:', error)
+    // }
+    addProduct({
+      sku: props.id,
+      quantity: Number(quantity),
+      name: props.product.name,
+      price: Number((props.price / 100).toFixed(2))
     })
-    if (error) {
-      console.warn('Error:', error)
-    }
   }
+
   return (
     <Grid>
       <Title>{props.product.name}</Title>
@@ -110,9 +108,9 @@ const Product = props => {
         />
       </Qty>
       <Description>{props.product.description}</Description>
-      <Button onClick={redirectToCheckout}>Comprar</Button>
+      <Button onClick={redirectToCheckout}>Añadir al carrito</Button>
       <Image src={props.product.images[selectedImage]} />
-      <Thumnails>
+      <Thumbnails>
         {props.product.images.map((image, i) => (
           <Thumb
             selected={selectedImage === i}
@@ -121,7 +119,7 @@ const Product = props => {
             onClick={() => setSelectedImage(i)}
           />
         ))}
-      </Thumnails>
+      </Thumbnails>
     </Grid>
   )
 }

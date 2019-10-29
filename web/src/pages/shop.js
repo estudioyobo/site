@@ -4,6 +4,7 @@ import Layout from '../containers/layout'
 import GraphQLErrorList from '../components/graphql-error-list'
 import SEO from '../components/seo'
 import ProductsGrid from '../components/products-grid'
+import Cart from '../components/cart'
 
 export const query = graphql`
   query ShopPageQuery {
@@ -36,6 +37,7 @@ const Shop = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <ProductsGrid />
+      <Cart />
     </Layout>
   )
 }

@@ -8,8 +8,12 @@ html {
 
 body {
   -webkit-font-smoothing: antialiased;
-  background: var(--color-white);
+  background: var(--color-black);
   color: var(--color-black);
   margin: 0;
   overflow-x: hidden;
+}
+
+#___gatsby {
+  background: var(--color-white);
 }
