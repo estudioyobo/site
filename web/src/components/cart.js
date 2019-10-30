@@ -141,7 +141,7 @@ const Cart = () => {
     event.preventDefault()
     const items = [
       ...products.map(({ sku, quantity }) => ({ sku, quantity })),
-      { sku: 'sku_G51Ie5BiroQK7v', quantity: 1 }
+      { sku: 'sku_G5Pe2VpveWgJJu', quantity: 1 }
     ]
     console.log('items', items)
     const { error } = await stripe.redirectToCheckout({
