@@ -180,46 +180,40 @@ const Cart = () => {
         </svg>
       </div>
       <div className='morph-content' ref={content}>
-        <div>
-          <div className='content-style-sidebar'>
-            <span className='icon icon-close' onClick={toggle} />
-            <h2>Carrito</h2>
-            <ul>
-              {products.map(p => (
-                <li key={p.sku}>
-                  <span>
-                    {p.name} {p.quantity > 1 && `(${p.quantity})`}
-                    <img
-                      src='/images/close.svg'
-                      width='10'
-                      onClick={() => removeProduct(p.sku)}
-                     />
-                  </span>
-                </li>
-              ))}
-            </ul>
-            {subtotal > 0 && (
-              <>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Subtotal</td>
-                      <td>{subtotal}€</td>
-                    </tr>
-                    <tr>
-                      <td>Gastos de envío</td>
-                      <td>{shipping}€</td>
-                    </tr>
-                    <tr className='total'>
-                      <td>TOTAL</td>
-                      <td>{subtotal + shipping}€</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </>
-            )}
-            {subtotal > 0 && <Button onClick={redirectToCheckout}>Comprar</Button>}
-          </div>
+        <div className='content-style-sidebar'>
+          <span className='icon icon-close' onClick={toggle} />
+          <h2>Carrito</h2>
+          <ul>
+            {products.map(p => (
+              <li key={p.sku}>
+                <span>
+                  {p.name} {p.quantity > 1 && `(${p.quantity})`}
+                  <img src='/images/close.svg' width='10' onClick={() => removeProduct(p.sku)} />
+                </span>
+              </li>
+            ))}
+          </ul>
+          {subtotal > 0 && (
+            <>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>Subtotal</td>
+                    <td>{subtotal}€</td>
+                  </tr>
+                  <tr>
+                    <td>Gastos de envío</td>
+                    <td>{shipping}€</td>
+                  </tr>
+                  <tr className='total'>
+                    <td>TOTAL</td>
+                    <td>{subtotal + shipping}€</td>
+                  </tr>
+                </tbody>
+              </table>
+            </>
+          )}
+          {subtotal > 0 && <Button onClick={redirectToCheckout}>Comprar</Button>}
         </div>
       </div>
     </div>,
