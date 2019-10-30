@@ -28,7 +28,7 @@ const Cart = () => {
   const rarc = useRef()
   const icon = useRef()
   const count = useRef()
-  const container = document.getElementById('___gatsby')
+  const container = useRef()
   useEffect(() => {
     const portal = document.createElement('div')
     portal.id = 'cart'
@@ -36,11 +36,13 @@ const Cart = () => {
     document.body.appendChild(portal)
   }, [])
   useEffect(() => {
-    if (container) {
-      container.classList.add('container')
+    const cnt = document.getElementById('___gatsby')
+    if (cnt) {
+      cnt.classList.add('container')
+      container.current = cnt
     }
     return () => {
-      container.classList.remove('pushed')
+      container.current.classList.remove('pushed')
       btn.current.classList.remove('active')
     }
   }, [container])
@@ -107,7 +109,7 @@ const Cart = () => {
       btn.current.classList.add('active')
     }
     // btn.current.classList.toggle('open')
-    container.classList.toggle('pushed')
+    container.current.classList.toggle('pushed')
 
     isExpanded.current = !isExpanded.current
 
