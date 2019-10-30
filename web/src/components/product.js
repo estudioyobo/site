@@ -1,30 +1,45 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import { useCartContext } from '../lib/cart'
 
 const Grid = styled.article`
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   grid-template-rows: auto auto auto 1fr 100px;
+  grid-template-areas: 'image title' 'image price' 'image qty' 'image description' 'thumbs .';
   max-width: 960px;
   margin: 2rem auto;
   grid-gap: 1rem;
+
+  .mobile-margins {
+    margin: 0;
+  }
+
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 10vh auto auto auto auto auto;
+    grid-template-areas: 'image' 'thumbs' 'title' 'price' 'description' 'qty' 'btn';
+    .mobile-margins {
+      margin: 0 10px;
+    }
+  }
 `
 
 const Title = styled.h1`
-  grid-row: 1 / 2;
-  grid-column: 2;
+  grid-area: title;
   margin: 0;
+  @media (max-width: 400px) {
+    margin: 0 10px;
+  }
 `
 
 const Price = styled.h2`
-  grid-row: 2 / 3;
-  grid-column: 2;
+  grid-area: price;
   margin: 0;
 `
 
 const Button = styled.button`
-  grid-row: 1 / 3;
-  grid-column: 2;
+  grid-area: price;
   justify-self: flex-end;
   align-self: flex-end;
   color: var(--color-white);
@@ -36,29 +51,34 @@ const Button = styled.button`
   &:hover {
     background: #111;
   }
+  @media (max-width: 400px) {
+    grid-area: btn;
+    justify-self: auto;
+    font-size: 1rem;
+  }
 `
 
 const Qty = styled.div`
-  grid-row: 3 / 4;
-  grid-column: 2;
+  grid-area: qty;
 `
 const Image = styled.img`
-  grid-row: 1 / 5;
-  grid-column: 1;
+  grid-area: image;
   width: 100%;
 `
-const Thumnails = styled.div`
-  grid-row: 5 / 6;
-  grid-column: 1 / 3;
+const Thumbnails = styled.div`
+  grid-area: thumbs;
+  overflow-x: auto;
+  overflow-y: hidden;
+  box-sizing: border-box;
 `
 const Thumb = styled.img`
   height: 100%;
   margin-right: 10px;
+  box-sizing: border-box;
   border: ${({ selected }) => (selected ? 'solid 2px var(--color-accent)' : 'none')};
 `
 const Description = styled.p`
-  grid-row: 4 / 6;
-  grid-column: 2 / 3;
+  grid-area: description;
 `
 
 const formatPrice = (amount, currency) => {
@@ -71,48 +91,24 @@ const formatPrice = (amount, currency) => {
   return numberFormat.format(price)
 }
 
-function useStripe () {
-  const [stripe, setStripe] = useState(null)
-  useEffect(() => {
-    const stripe = window.Stripe(process.env.GATSBY_STRIPE_PUBLIC_KEY)
-    setStripe(stripe)
-  }, [])
-
-  return stripe
-}
-
 const Product = props => {
-  const stripe = useStripe()
   const [selectedImage, setSelectedImage] = useState(0)
   const [quantity, setQuantity] = useState(1)
-  async function redirectToCheckout (event) {
+  const { addProduct } = useCartContext()
+  async function addToCart (event) {
     event.preventDefault()
-    const { error } = await stripe.redirectToCheckout({
-      items: [{ sku: props.id, quantity: Number(quantity) }],
-      billingAddressCollection: 'required',
-      successUrl: `https://www.estudioyobo.com/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: `https://www.estudioyobo.com/404`
+    addProduct({
+      sku: props.id,
+      quantity: Number(quantity),
+      name: props.product.name,
+      price: Number((props.price / 100).toFixed(2))
     })
-    if (error) {
-      console.warn('Error:', error)
-    }
   }
+
   return (
     <Grid>
-      <Title>{props.product.name}</Title>
-      <Price>{formatPrice(props.price, props.currency)}</Price>
-      <Qty>
-        <span>Cantidad: </span>
-        <input
-          type='number'
-          value={quantity}
-          onChange={({ target: { value } }) => setQuantity(value)}
-        />
-      </Qty>
-      <Description>{props.product.description}</Description>
-      <Button onClick={redirectToCheckout}>Comprar</Button>
       <Image src={props.product.images[selectedImage]} />
-      <Thumnails>
+      <Thumbnails>
         {props.product.images.map((image, i) => (
           <Thumb
             selected={selectedImage === i}
@@ -121,7 +117,21 @@ const Product = props => {
             onClick={() => setSelectedImage(i)}
           />
         ))}
-      </Thumnails>
+      </Thumbnails>
+      <Title className='mobile-margins'>{props.product.name}</Title>
+      <Price className='mobile-margins'>{formatPrice(props.price, props.currency)}</Price>
+      <Description className='mobile-margins'>{props.product.description}</Description>
+      <Qty className='mobile-margins'>
+        <span>Cantidad: </span>
+        <input
+          type='number'
+          value={quantity}
+          onChange={({ target: { value } }) => setQuantity(value)}
+        />
+      </Qty>
+      <Button className='mobile-margins' onClick={addToCart}>
+        Añadir al carrito
+      </Button>
     </Grid>
   )
 }

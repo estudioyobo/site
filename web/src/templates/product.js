@@ -5,6 +5,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import Product from '../components/product'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Cart from '../components/cart'
 
 export const query = graphql`
   query ProductTemplateQuery($id: String!) {
@@ -24,9 +25,10 @@ export const query = graphql`
 const ProductTemplate = props => {
   const { data, errors } = props
   const product = data && data.product
+
   return (
     <Layout showNav>
-      {errors && <SEO title='GraphQL Error' />}
+      {errors && <SEO title="GraphQL Error" />}
       {product && <SEO title={product.product.name || 'Untitled'} />}
 
       {errors && (
@@ -35,6 +37,7 @@ const ProductTemplate = props => {
         </Container>
       )}
       {product && <Product {...product} />}
+      <Cart />
     </Layout>
   )
 }
