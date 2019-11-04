@@ -78,6 +78,9 @@ export default {
     },
     {
       type: 'table'
+    },
+    {
+      type: 'code'
     }
   ]
 }

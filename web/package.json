@@ -43,6 +43,7 @@
     "react-modal": "^3.10.1",
     "react-scrollspy": "^3.4.0",
     "react-slick": "^0.24.0",
+    "react-syntax-highlighter": "^11.0.2",
     "scrollmagic": "^2.0.7",
     "slick-carousel": "^1.8.1",
     "styled-components": "^4.3.2"
