@@ -10,6 +10,16 @@ const Grid = styled.div`
   margin: 5rem auto;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
+
+  @media (max-width: 960px) {
+    padding: 1rem;
+  }
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export default props => {
@@ -34,7 +44,7 @@ export default props => {
       `}
       render={({ skus }) => (
         <div>
-          <SectionHeader title="shop" dividerColor="#56EF98" />
+          <SectionHeader title='shop' dividerColor='#56EF98' />
           <Grid>
             {skus.edges
               .filter(sku => sku.node.image)
