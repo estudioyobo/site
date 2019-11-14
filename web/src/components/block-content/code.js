@@ -5,7 +5,12 @@ import darcula from 'react-syntax-highlighter/dist/cjs/styles/hljs/darcula'
 function Code ({ language, code }) {
   if (!code) return null
   return (
-    <SyntaxHighlighter language={language || 'text'} showLineNumbers wrapLines style={darcula}>
+    <SyntaxHighlighter
+      language={language || 'text'}
+      customStyle={{ maxWidth: 'calc(100vw - 4em)' }}
+      showLineNumbers
+      style={darcula}
+    >
       {code}
     </SyntaxHighlighter>
   )
