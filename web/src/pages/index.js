@@ -21,7 +21,7 @@ import './index.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-Modal.setAppElement("#___gatsby")
+Modal.setAppElement('#___gatsby')
 
 export const query = graphql`
   query IndexPageQuery {
@@ -127,7 +127,7 @@ const IndexPage = props => {
   const { data, errors } = props
   const [newsletter, setNewsletter] = useState(false)
 
-  function showNewsletter (e) {
+  function showNewsletter(e) {
     if (
       e.clientY <= 0 ||
       e.clientX <= 0 ||
@@ -138,12 +138,12 @@ const IndexPage = props => {
     }
   }
 
-  useEffect(() => {
-    document.addEventListener('mouseout', showNewsletter)
-    return () => {
-      document.removeEventListener('mouseout', showNewsletter)
-    }
-  }, [showNewsletter])
+  // useEffect(() => {
+  //   document.addEventListener('mouseout', showNewsletter)
+  //   return () => {
+  //     document.removeEventListener('mouseout', showNewsletter)
+  //   }
+  // }, [showNewsletter])
 
   if (errors) {
     return (
@@ -181,7 +181,11 @@ const IndexPage = props => {
       <TeamWork />
       <Contact />
       <Modal isOpen={newsletter} onRequestClose={() => setNewsletter(false)} closeTimeoutMS={300}>
-        <Newsletter title="Suscríbete a la newsletter" subtitle='y entérate de noticias del mundo del diseño y desarrollo del mundo digital' path='popup' />
+        <Newsletter
+          title="Suscríbete a la newsletter"
+          subtitle="y entérate de noticias del mundo del diseño y desarrollo del mundo digital"
+          path="popup"
+        />
       </Modal>
     </Layout>
   )

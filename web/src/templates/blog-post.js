@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import BlogPost from '../components/blog-post'
+import Newsletter from '../components/newsletter'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
@@ -109,6 +110,13 @@ const BlogPostTemplate = props => {
       )}
 
       {post && <BlogPost {...post} />}
+      <Container>
+        <Newsletter
+          title='Suscríbete a la newsletter'
+          subtitle='y entérate de noticias del mundo del diseño y desarrollo del mundo digital'
+          path={`post: ${post.title}`}
+        />
+      </Container>
     </Layout>
   )
 }

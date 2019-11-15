@@ -7,20 +7,29 @@ import AnimatedInput from './AnimatedInput/index'
 const NewsletterStyled = styled.form`
   display: grid;
   grid-template-columns: 1fr minmax(0, 1fr);
+  grid-template-rows: repeat(3, 0.3fr);
 `
 
 export const Button = styled.button`
   grid-row: 3;
-  background: #56ef98;
-  color: white;
+  margin-top: 1rem;
+  background: transparent;
+  color: var(--color-accent);
   grid-column: 1/-1;
   width: 100%;
   text-transform: uppercase;
   font-size: ${({ small }) => (small ? '1.1rem' : '1.5rem')};
   font-weight: 600;
   padding: ${({ small }) => (small ? '.6rem' : '1rem')};
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   @media (max-width: 600px) {
     grid-row: 4;
+  }
+  &:hover {
+    background: var(--color-accent);
+    color: var(--color-white);
   }
 `
 
@@ -47,7 +56,8 @@ const Text = styled.h2`
 `
 
 const Image = styled.img`
-  width: 100%;
+  height: 100%;
+  justify-self: center;
   object-fit: cover;
   grid-row: 1 / 3;
   grid-column: 2;
@@ -116,13 +126,6 @@ const Newsletter = ({ title, subtitle, image, path, dark }) => {
               required
               name='FNAME'
               label='nombre'
-              dark={dark}
-              styles={{ input: { border: 'solid 1px #333' } }}
-            />
-            <AnimatedInput
-              required
-              name='LNAME'
-              label='apellidos'
               dark={dark}
               styles={{ input: { border: 'solid 1px #333' } }}
             />
