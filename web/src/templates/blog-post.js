@@ -6,6 +6,8 @@ import BlogPost from '../components/blog-post'
 import Newsletter from '../components/newsletter'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import { imageUrlFor } from '../lib/image-url'
+import { buildImageObj } from '../lib/helpers'
 
 export const query = graphql`
   query BlogPostTemplateQuery($id: String!) {
@@ -101,7 +103,13 @@ const BlogPostTemplate = props => {
   return (
     <Layout>
       {errors && <SEO title='GraphQL Error' />}
-      {post && <SEO title={post.title || 'Untitled'} description={toPlainText(post._rawExcerpt)} />}
+      {post && (
+        <SEO
+          title={post.title || 'Untitled'}
+          description={toPlainText(post._rawExcerpt)}
+          image={imageUrlFor(buildImageObj(post.cover))}
+        />
+      )}
 
       {errors && (
         <Container>

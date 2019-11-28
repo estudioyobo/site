@@ -14,7 +14,7 @@ const detailsQuery = graphql`
   }
 `
 
-function SEO ({ description, lang, meta, keywords = [], title }) {
+function SEO ({ description, lang, meta, keywords = [], title, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -23,6 +23,63 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
           return
         }
         const metaDescription = description || data.site.description
+        let metaTags = [
+          {
+            name: 'description',
+            content: metaDescription
+          },
+          {
+            property: 'og:title',
+            content: title
+          },
+          {
+            property: 'og:description',
+            content: metaDescription
+          },
+          {
+            property: 'og:type',
+            content: 'website'
+          },
+          {
+            name: 'twitter:card',
+            content: 'summary'
+          },
+          {
+            name: 'twitter:creator',
+            content: data.site.author
+          },
+          {
+            name: 'twitter:title',
+            content: title
+          },
+          {
+            name: 'twitter:description',
+            content: metaDescription
+          }
+        ]
+          .concat(
+            keywords && keywords.length > 0
+              ? {
+                name: 'keywords',
+                content: keywords.join(', ')
+              }
+              : []
+          )
+          .concat(meta)
+          .concat(
+            image
+              ? [
+                {
+                  name: 'og:image',
+                  content: image
+                },
+                {
+                  name: 'twitter:image',
+                  content: image
+                }
+              ]
+              : []
+          )
         return (
           <Helmet
             htmlAttributes={{
@@ -30,49 +87,7 @@ function SEO ({ description, lang, meta, keywords = [], title }) {
             }}
             title={title}
             titleTemplate={title === data.site.title ? '%s' : `%s | ${data.site.title}`}
-            meta={[
-              {
-                name: 'description',
-                content: metaDescription
-              },
-              {
-                property: 'og:title',
-                content: title
-              },
-              {
-                property: 'og:description',
-                content: metaDescription
-              },
-              {
-                property: 'og:type',
-                content: 'website'
-              },
-              {
-                name: 'twitter:card',
-                content: 'summary'
-              },
-              {
-                name: 'twitter:creator',
-                content: data.site.author
-              },
-              {
-                name: 'twitter:title',
-                content: title
-              },
-              {
-                name: 'twitter:description',
-                content: metaDescription
-              }
-            ]
-              .concat(
-                keywords && keywords.length > 0
-                  ? {
-                    name: 'keywords',
-                    content: keywords.join(', ')
-                  }
-                  : []
-              )
-              .concat(meta)}
+            meta={metaTags}
           />
         )
       }}
