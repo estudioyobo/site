@@ -28,10 +28,10 @@ exports.handler = function (event, context, callback) {
   return fetch(process.env.DISCORD_WEBHOOK, {
     method: 'POST',
     headers,
-    body: {
+    body: JSON.stringify({
       content,
       username: 'Stripe'
-    }
+    })
   })
     .then(() => {
       callback(null, {
