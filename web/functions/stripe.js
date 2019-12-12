@@ -1,6 +1,6 @@
 const fetch = require('node-fetch')
 
-exports.handler = function (event, context, callback) {
+exports.handler = function(event, context, callback) {
   const {
     body: { data, type }
   } = event
@@ -26,9 +26,16 @@ exports.handler = function (event, context, callback) {
       content,
       username: 'Stripe'
     }
-  }).then(() => {
-    callback(null, {
-      statusCode: 200
-    })
   })
+    .then(() => {
+      callback(null, {
+        statusCode: 200,
+        body: content
+      })
+    })
+    .catch(e => {
+      callback(e.message, {
+        statusCode: 500
+      })
+    })
 }
