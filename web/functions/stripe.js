@@ -2,9 +2,8 @@ const fetch = require('node-fetch')
 
 exports.handler = function (event, context, callback) {
   console.log('event', event)
-  const {
-    body: { data, type }
-  } = event
+  const { body } = event
+  const { type, data } = JSON.parse(body)
   let content = `
   Tipo: ${type}
 
