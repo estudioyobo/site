@@ -12,8 +12,7 @@ exports.handler = function (event, context, callback) {
 
   ID: ${data.object.id}
   ${data.object.description}
-  Total: ${data.object.amount}
-  ${JSON.stringify(data.object.billing_details)}
+  ${data.object.receipt_url}
   `
       break
 
