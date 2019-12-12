@@ -7,16 +7,8 @@ exports.handler = function (event, context, callback) {
   let content = `
   Tipo: ${type}
 
-  ${JSON.stringify(data, null, 4)}
+  ${JSON.stringify(data.object.address, null, 4)}
   `
-  // switch (type) {
-  //   case 'customer.updated':
-  //     content =
-  //     break;
-
-  //   default:
-  //     break;
-  // }
 
   console.log(process.env.DISCORD_WEBHOOK)
   console.log(content)
@@ -30,7 +22,8 @@ exports.handler = function (event, context, callback) {
     headers,
     body: JSON.stringify({
       content,
-      username: 'Stripe'
+      username: 'Stripe',
+      avatar_url: 'https://stripe.com/favicon.ico'
     })
   })
     .then(e => {
