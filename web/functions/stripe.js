@@ -4,11 +4,22 @@ exports.handler = function (event, context, callback) {
   console.log('event', event)
   const { body } = event
   const { type, data } = JSON.parse(body)
-  let content = `
+  let content = type
+  switch (type) {
+    case 'charge.succeeded':
+      content = `
   Tipo: ${type}
 
-  ${JSON.stringify(data.object.address, null, 4)}
+  ID: ${data.object.id}
+  ${data.object.description}
+  Total: ${data.object.amount}
+  ${JSON.stringify(data.object.billing_details)}
   `
+      break
+
+    default:
+      break
+  }
 
   console.log(process.env.DISCORD_WEBHOOK)
   console.log(content)
