@@ -25,7 +25,7 @@ exports.handler = function (event, context, callback) {
     'Content-Type': 'application/json'
   }
 
-  return fetch(process.env.DISCORD_WEBHOOK, {
+  fetch(process.env.DISCORD_WEBHOOK, {
     method: 'POST',
     headers,
     body: JSON.stringify({
@@ -33,10 +33,10 @@ exports.handler = function (event, context, callback) {
       username: 'Stripe'
     })
   })
-    .then(() => {
+    .then(e => {
       callback(null, {
         statusCode: 200,
-        body: content
+        body: JSON.stringify(e)
       })
     })
     .catch(e => {
