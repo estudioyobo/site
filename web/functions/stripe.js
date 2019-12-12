@@ -1,6 +1,7 @@
 const fetch = require('node-fetch')
 
-exports.handler = function(event, context, callback) {
+exports.handler = function (event, context, callback) {
+  console.log('event', event)
   const {
     body: { data, type }
   } = event
@@ -19,9 +20,15 @@ exports.handler = function(event, context, callback) {
   // }
 
   console.log(process.env.DISCORD_WEBHOOK)
+  console.log(content)
+
+  const headers = {
+    'Content-Type': 'application/json'
+  }
 
   return fetch(process.env.DISCORD_WEBHOOK, {
     method: 'POST',
+    headers,
     body: {
       content,
       username: 'Stripe'
