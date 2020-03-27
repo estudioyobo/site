@@ -11,7 +11,7 @@ import SectionHeader from '../components/SectionHeader'
 
 export const query = graphql`
   query BlogPageQuery {
-    posts: allSanityPost(limit: 12, sort: { fields: [publishedAt], order: DESC }) {
+    posts: allSanityPost(limit: 30, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -49,10 +49,10 @@ const BlogPage = props => {
   return (
     <Layout>
       <SEO
-        title='Blog'
-        description='Tutoriales para Desarrollo, artículos de Diseño y de las últimas tecnologías, Lenguajes de Programación, trucos para Diseñadores... Mantente informado suscribiéndote a la Newsletter.'
+        title="Blog"
+        description="Tutoriales para Desarrollo, artículos de Diseño y de las últimas tecnologías, Lenguajes de Programación, trucos para Diseñadores... Mantente informado suscribiéndote a la Newsletter."
       />
-      <SectionHeader title='blog' dividerColor='#56EF98' />
+      <SectionHeader title="blog" dividerColor="#56EF98" />
       <Container>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
       </Container>
