@@ -8,7 +8,7 @@ import RoleList from './role-list'
 
 import styles from './blog-post.module.css'
 
-function BlogPost (props) {
+function BlogPost(props) {
   const { _rawBody, authors, categories, title, cover, publishedAt } = props
   return (
     <article className={styles.root}>
@@ -16,9 +16,8 @@ function BlogPost (props) {
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(cover))
-              .width(1200)
-              .height(Math.floor((9 / 16) * 1200))
-              .fit('crop')
+              .width(1920)
+              .height(1080)
               .url()}
             alt={cover.alt}
           />
@@ -38,7 +37,7 @@ function BlogPost (props) {
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
             )}
-            {authors && <RoleList items={authors} title='Authors' />}
+            {authors && <RoleList items={authors} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
