@@ -127,7 +127,7 @@ const IndexPage = props => {
   const { data, errors } = props
   const [newsletter, setNewsletter] = useState(false)
 
-  function showNewsletter(e) {
+  function showNewsletter (e) {
     if (
       e.clientY <= 0 ||
       e.clientX <= 0 ||
@@ -179,12 +179,12 @@ const IndexPage = props => {
       <Portfolio posts={projectNodes} />
       <Companies companies={clientNodes} />
       <TeamWork />
-      <Contact />
+      <Contact companyInfo={companyInfo} />
       <Modal isOpen={newsletter} onRequestClose={() => setNewsletter(false)} closeTimeoutMS={300}>
         <Newsletter
-          title="Suscríbete a la newsletter"
-          subtitle="y entérate de noticias del mundo del diseño y desarrollo del mundo digital"
-          path="popup"
+          title='Suscríbete a la newsletter'
+          subtitle='y entérate de noticias del mundo del diseño y desarrollo del mundo digital'
+          path='popup'
         />
       </Modal>
     </Layout>

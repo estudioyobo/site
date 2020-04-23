@@ -112,7 +112,7 @@ const Map = styled.div`
   }
 `
 
-const Contact = () => (
+const Contact = ({ companyInfo }) => (
   <ContactWrapper id='contact'>
     <SectionHeader title='contacto' dividerColor='#56EF98' />
     <Grid>
@@ -152,10 +152,11 @@ const Contact = () => (
       </Form>
 
       <div className='direction'>
-        Elche - Alicante
+        {companyInfo.city}
         <br />
-        C/ Reina Victoria, 39. Planta 3<br />
-        966 578 597
+        {companyInfo.address1}
+        <br />
+        {companyInfo.phone}
         <br />
       </div>
     </Grid>
