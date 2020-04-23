@@ -33,6 +33,9 @@ export const query = graphql`
 
     companyInfo: sanityCompanyInfo(_id: { regex: "/(drafts.|)companyInfo/" }) {
       id
+      address1
+      city
+      phone
       social {
         name
         icon {
