@@ -28,6 +28,12 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-facebook-pixel`,
+      options: {
+        pixelId: '2338144273144620'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
