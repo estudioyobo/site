@@ -10,7 +10,7 @@ const Success = ({ location }) => {
       <script>
         {`
           fbq('track', 'Purchase', {
-            value: 15,00,
+            value: 15.00,
             currency: 'EUR',
             contents: [
                 {

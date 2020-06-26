@@ -145,8 +145,9 @@ const Cart = () => {
       ...products.map(({ sku, quantity }) => ({ sku, quantity })),
       { sku: 'sku_G5Pe2VpveWgJJu', quantity: 1 }
     ]
+    const subtotal = products.reduce((prev, next) => prev + next.quantity * next.price, 0)
     global.fbq('track', 'InitiateCheckout', {
-      value: 15.0,
+      value: subtotal,
       currency: 'EUR'
     })
     const { error } = await stripe.redirectToCheckout({
