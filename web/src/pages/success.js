@@ -10,12 +10,12 @@ const Success = ({ location }) => {
     <>
       <script>
         {`
-          fbq('track', 'Purchase', {
+          fbq("track", "Purchase", {
             value: 15.00,
-            currency: 'EUR',
+            currency: "EUR",
             contents: [
                 {
-                    id: 'Comprar'
+                    id: "Comprar"
                 }
             ],
           });
