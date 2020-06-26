@@ -7,10 +7,9 @@ import parseQueryStrings from '../lib/querystrings'
 const Success = ({ location }) => {
   const params = parseQueryStrings(location.search)
   return (
-    <Layout>
-      <Helmet>
-        <script>
-          {`
+    <>
+      <script>
+        {`
           fbq('track', 'Purchase', {
             value: 15.00,
             currency: 'EUR',
@@ -21,13 +20,14 @@ const Success = ({ location }) => {
             ],
           });
           `}
-        </script>
-      </Helmet>
-      <Container>
-        <h1>Enhorabuena</h1>
-        {params && params.session_id && <div>{params.session_id}</div>}
-      </Container>
-    </Layout>
+      </script>
+      <Layout>
+        <Container>
+          <h1>Enhorabuena</h1>
+          {params && params.session_id && <div>{params.session_id}</div>}
+        </Container>
+      </Layout>
+    </>
   )
 }
 
