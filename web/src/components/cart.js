@@ -102,7 +102,7 @@ const Cart = () => {
         easing: 'easeOutQuad'
       })
   }, [products])
-  function toggle () {
+  function toggle() {
     // if (isAnimating.current) return false;
     // isAnimating.current = true;
     if (!isExpanded.current) {
@@ -122,7 +122,7 @@ const Cart = () => {
     content.current.style.top = 'auto'
 
     // add/remove class "open" to the button wraper
-    setTimeout(function () {
+    setTimeout(function() {
       // var buttonPos2 = btn.current.getBoundingClientRect()
       // console.log('bp2', buttonPos2)
       content.current.style.right = buttonOffset + 'px'
@@ -132,20 +132,23 @@ const Cart = () => {
         content.current.classList.remove('no-transition')
         btn.current.classList.remove('open')
       } else {
-        setTimeout(function () {
+        setTimeout(function() {
           content.current.classList.remove('no-transition')
           btn.current.classList.add('open')
         }, 25)
       }
     }, 25)
   }
-  async function redirectToCheckout (event) {
+  async function redirectToCheckout(event) {
     event.preventDefault()
     const items = [
       ...products.map(({ sku, quantity }) => ({ sku, quantity })),
       { sku: 'sku_G5Pe2VpveWgJJu', quantity: 1 }
     ]
-    console.log('items', items)
+    global.fbq('track', 'InitiateCheckout', {
+      value: 15.0,
+      currency: 'EUR'
+    })
     const { error } = await stripe.redirectToCheckout({
       items,
       billingAddressCollection: 'required',
@@ -160,37 +163,37 @@ const Cart = () => {
   const subtotal = products.reduce((prev, next) => prev + next.quantity * next.price, 0)
   const shipping = 5
   return ReactDOM.createPortal(
-    <div ref={btn} className='morph-button morph-button-sidebar morph-button-fixed'>
-      <div type='button' onClick={toggle}>
+    <div ref={btn} className="morph-button morph-button-sidebar morph-button-fixed">
+      <div type="button" onClick={toggle}>
         {totalProducts > 0 && (
-          <span ref={count} className='items-count'>
+          <span ref={count} className="items-count">
             {totalProducts}
           </span>
         )}
-        <img ref={icon} className='cart-icon' src='/images/shopping-cart.svg' alt='shopping cart' />
-        <svg className='arc' viewBox='0 0 160 160'>
+        <img ref={icon} className="cart-icon" src="/images/shopping-cart.svg" alt="shopping cart" />
+        <svg className="arc" viewBox="0 0 160 160">
           <path
             ref={larc}
-            d='M 41.5 146.683956 A 77 77 0 1 1 118.5 13.3160439'
-            strokeDasharray='0 483.805269'
+            d="M 41.5 146.683956 A 77 77 0 1 1 118.5 13.3160439"
+            strokeDasharray="0 483.805269"
           />
           <path
             ref={rarc}
-            d='M 41.5 146.683956 A 77 77 0 1 0 118.5 13.3160439'
-            strokeDasharray='0 483.805269'
+            d="M 41.5 146.683956 A 77 77 0 1 0 118.5 13.3160439"
+            strokeDasharray="0 483.805269"
           />
         </svg>
       </div>
-      <div className='morph-content' ref={content}>
-        <div className='content-style-sidebar'>
-          <span className='icon icon-close' onClick={toggle} />
+      <div className="morph-content" ref={content}>
+        <div className="content-style-sidebar">
+          <span className="icon icon-close" onClick={toggle} />
           <h2>Carrito</h2>
           <ul>
             {products.map(p => (
               <li key={p.sku}>
                 <span>
                   {p.name} {p.quantity > 1 && `(${p.quantity})`}
-                  <img src='/images/close.svg' width='10' onClick={() => removeProduct(p.sku)} />
+                  <img src="/images/close.svg" width="10" onClick={() => removeProduct(p.sku)} />
                 </span>
               </li>
             ))}
@@ -207,7 +210,7 @@ const Cart = () => {
                     <td>Gastos de envío</td>
                     <td>{shipping}€</td>
                   </tr>
-                  <tr className='total'>
+                  <tr className="total">
                     <td>TOTAL</td>
                     <td>{subtotal + shipping}€</td>
                   </tr>
