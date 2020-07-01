@@ -141,10 +141,8 @@ const Cart = () => {
   }
   async function redirectToCheckout(event) {
     event.preventDefault()
-    const items = [
-      ...products.map(({ sku, quantity }) => ({ sku, quantity })),
-      { sku: 'sku_G5Pe2VpveWgJJu', quantity: 1 }
-    ]
+    const items = products.map(({ sku, quantity }) => ({ sku, quantity }))
+
     const subtotal = products.reduce((prev, next) => prev + next.quantity * next.price, 0)
     global.fbq('track', 'InitiateCheckout', {
       value: subtotal,
@@ -162,7 +160,6 @@ const Cart = () => {
   }
   if (!root.current) return null
   const subtotal = products.reduce((prev, next) => prev + next.quantity * next.price, 0)
-  const shipping = 5
   return ReactDOM.createPortal(
     <div ref={btn} className="morph-button morph-button-sidebar morph-button-fixed">
       <div type="button" onClick={toggle}>
@@ -209,11 +206,11 @@ const Cart = () => {
                   </tr>
                   <tr>
                     <td>Gastos de envío</td>
-                    <td>{shipping}€</td>
+                    <td>Gratis</td>
                   </tr>
                   <tr className="total">
                     <td>TOTAL</td>
-                    <td>{subtotal + shipping}€</td>
+                    <td>{subtotal}€</td>
                   </tr>
                 </tbody>
               </table>

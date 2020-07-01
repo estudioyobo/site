@@ -19,8 +19,8 @@ const Success = ({ location }) => {
   return (
     <Layout>
       <Container>
-        <h1>Enhorabuena</h1>
-        {params && params.session_id && <div>{params.session_id}</div>}
+        <h1>¡Gracias por tu compra!</h1>
+        <h3>Estamos procesando tu pedido, en breves lo enviaremos y podrás disfrutarlo</h3>
       </Container>
     </Layout>
   )
