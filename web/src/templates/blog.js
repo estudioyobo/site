@@ -8,10 +8,11 @@ import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
 import SectionHeader from '../components/SectionHeader'
+import Pagination from '../components/Pagination'
 
 export const query = graphql`
-  query BlogPageQuery {
-    posts: allSanityPost(limit: 30, sort: { fields: [publishedAt], order: DESC }) {
+  query BlogPageQuery($skip: Int, $limit: Int) {
+    posts: allSanityPost(skip: $skip, limit: $limit, sort: { fields: [publishedAt], order: DESC }) {
       edges {
         node {
           id
@@ -34,8 +35,8 @@ export const query = graphql`
 `
 
 const BlogPage = props => {
-  const { data, errors } = props
-
+  const { data, errors, pageContext } = props
+  console.log('props', props)
   if (errors) {
     return (
       <Layout>
@@ -55,6 +56,11 @@ const BlogPage = props => {
       <SectionHeader title="blog" dividerColor="#56EF98" />
       <Container>
         {postNodes && postNodes.length > 0 && <BlogPostPreviewGrid nodes={postNodes} />}
+        <Pagination
+          path="/blog"
+          currentPage={pageContext.currentPage}
+          numPages={pageContext.numPages}
+        />
       </Container>
     </Layout>
   )

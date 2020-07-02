@@ -28,6 +28,21 @@ async function createBlogPostPages(graphql, actions, reporter) {
 
   const postEdges = (result.data.allSanityPost || {}).edges || []
 
+  const postsPerPage = 9
+  const numPages = Math.ceil(postEdges.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+      component: require.resolve('./src/templates/blog.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1
+      }
+    })
+  })
+
   postEdges.forEach((edge, index) => {
     const { id, slug = {}, publishedAt } = edge.node
     const dateSegment = format(publishedAt, 'YYYY/MM')
