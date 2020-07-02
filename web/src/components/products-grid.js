@@ -44,13 +44,11 @@ export default props => {
       `}
       render={({ skus }) => (
         <div>
-          <SectionHeader title='shop' dividerColor='#56EF98' />
+          <SectionHeader title="shop" dividerColor="#56EF98" />
           <Grid>
-            {skus.edges
-              .filter(sku => sku.node.image)
-              .map(({ node }) => (
-                <ProductCard key={node.id} sku={node} />
-              ))}
+            {skus.edges.map(({ node }) => (
+              <ProductCard key={node.id} sku={node} />
+            ))}
           </Grid>
         </div>
       )}
