@@ -79,6 +79,38 @@ async function createProjectPages(graphql, actions, reporter) {
   })
 }
 
+async function createSubscriptionPages(graphql, actions, reporter) {
+  const { createPage } = actions
+  const result = await graphql(`
+    {
+      allStripePlan {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `)
+
+  if (result.errors) throw result.errors
+
+  const subscriptionEdges = (result.data.allStripePlan || {}).edges || []
+
+  subscriptionEdges.forEach(edge => {
+    const id = edge.node.id
+    const path = `/subscription/${id}/`
+
+    reporter.info(`Creating subscription page: ${path}`)
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/subscription.js'),
+      context: { id }
+    })
+  })
+}
+
 async function createProductPages(graphql, actions, reporter) {
   const { createPage } = actions
   const result = await graphql(`
@@ -102,7 +134,7 @@ async function createProductPages(graphql, actions, reporter) {
     // const slug = edge.node.slug.current
     const path = `/product/${id}/`
 
-    reporter.info(`Creating project page: ${path}`)
+    reporter.info(`Creating product page: ${path}`)
 
     createPage({
       path,
@@ -116,6 +148,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   await createBlogPostPages(graphql, actions, reporter)
   await createProjectPages(graphql, actions, reporter)
   await createProductPages(graphql, actions, reporter)
+  await createSubscriptionPages(graphql, actions, reporter)
 }
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {

@@ -56,7 +56,7 @@ module.exports = {
     {
       resolve: `gatsby-source-stripe`,
       options: {
-        objects: ['Product', 'Sku'],
+        objects: ['Product', 'Sku', 'Plan'],
         secretKey: process.env.STRIPE_SECRET_KEY,
         downloadFiles: true
       }
@@ -71,7 +71,7 @@ module.exports = {
  * with directions to enter the info manually or in the environment.
  */
 
-function requireConfig (path) {
+function requireConfig(path) {
   try {
     return require(path)
   } catch (e) {
