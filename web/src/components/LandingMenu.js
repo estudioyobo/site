@@ -17,7 +17,7 @@ const Item = styled.li`
   display: block;
   mix-blend-mode: multiply;
   a {
-    color: black;
+    color: var(--color-white);
     text-decoration: none;
   }
   &.selected {
@@ -37,7 +37,7 @@ const Item = styled.li`
 `
 
 const LandingMenu = ({ sections }) => (
-  <Scrollspy items={sections.map(s => s.id)} currentClassName="selected" className={styles.nav}>
+  <Scrollspy items={sections.map((s) => s.id)} currentClassName="selected" className={styles.nav}>
     {sections.map((section, i) => (
       <Item key={section}>
         <a href={`#${section.id}`}>

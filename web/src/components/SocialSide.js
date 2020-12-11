@@ -7,6 +7,7 @@ const Container = styled.div`
   right: 10px;
   top: 40%;
   z-index: 30;
+  mix-blend-mode: exclusion;
 
   @media (max-width: 800px) {
     display: none;
@@ -16,7 +17,7 @@ const Container = styled.div`
 const SocialSide = ({ social }) => (
   <Container>
     {social.map((e, i) => (
-      <Social invert key={i} {...e} />
+      <Social key={i} {...e} />
     ))}
   </Container>
 )

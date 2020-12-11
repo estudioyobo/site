@@ -6,19 +6,14 @@ import { buildImageObj } from '../lib/helpers'
 const Icon = styled.img`
   width: 35px;
   margin: 0 10px;
-  ${({ invert }) => invert && 'filter: invert(1);'};
 `
 
-const Social = ({ name, icon, link, invert }) => {
+const Social = ({ name, icon, link }) => {
   return (
-    <div className='social'>
-      <a href={link} target='_blank' rel='noopener noreferrer'>
+    <div className="social">
+      <a href={link} target="_blank" rel="noopener noreferrer">
         <Icon
-          invert={invert}
-          src={imageUrlFor(buildImageObj(icon))
-            .width(35)
-            .height(35)
-            .url()}
+          src={imageUrlFor(buildImageObj(icon)).width(35).height(35).url()}
           alt={`${name} icon`}
         />
       </a>

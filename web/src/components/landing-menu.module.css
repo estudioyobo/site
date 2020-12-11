@@ -4,6 +4,7 @@
   z-index: 30;
   min-width: 100px;
   top: 40%;
+  mix-blend-mode: exclusion;
 }
 
 /**
