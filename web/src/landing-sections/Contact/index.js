@@ -167,7 +167,7 @@ const Contact = ({ companyInfo }) => (
         height='100%'
         frameBorder='0'
         allowFullScreen
-        src='https://umap.openstreetmap.fr/es/map/mapa-sin-titulo_246982?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false'
+        src='https://umap.openstreetmap.fr/es/map/yobo_603492?scaleControl=false&miniMap=true&scrollWheelZoom=false&zoomControl=false&allowEdit=false&moreControl=false&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=null&onLoadPanel=undefined&captionBar=false'
       />
     </Map>
   </ContactWrapper>
