@@ -57,7 +57,7 @@ const Footer = ({ companyInfo }) => {
         <div className="made">Made with &#x2764; by Estudio Yobo</div>
       </div>
       <div className="row">
-        <div className="copyright">Copyright &copy; 2020. Estudio Yobo</div>
+        <div className="copyright">Copyright &copy; 2022. Estudio Yobo</div>
       </div>
       <Modal isOpen={newsletter} onRequestClose={() => setNewsletter(false)} style={modalStyles}>
         <Newsletter
