@@ -28,12 +28,6 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: 'AW-677271162'
-      }
-    },
-    {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
         pixelId: '2338144273144620'
