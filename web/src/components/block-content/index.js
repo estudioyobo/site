@@ -4,6 +4,7 @@ import Figure from './figure'
 import Slideshow from './slideshow'
 import Table from './table'
 import Code from './code'
+import Video from './video'
 
 import typography from '../typography.module.css'
 
@@ -41,6 +42,9 @@ const serializers = {
     },
     code (props) {
       return <Code {...props.node} />
+    },
+    video (props) {
+      return <Video {...props.node} />
     }
   }
 }

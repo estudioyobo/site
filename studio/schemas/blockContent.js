@@ -1,4 +1,5 @@
 import { FaExternalLinkAlt } from 'react-icons/fa';
+import VideoPreview from '../src/components/videoPreview';
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -81,6 +82,9 @@ export default {
     },
     {
       type: 'code'
+    },
+    {
+      type: 'video'
     }
   ]
 }

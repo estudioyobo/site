@@ -19,6 +19,7 @@ import project from './project';
 import projectMember from './projectMember';
 import siteSettings from './siteSettings';
 import slideshow from './slideshow';
+import video from './video';
 import social from './social';
 import client from './client';
 import service from './service';
@@ -49,6 +50,7 @@ export default createSchema({
     projectMember,
     siteSettings,
     slideshow,
+    video,
     service,
     serviceElement
     // When added to this list, object types can be used as
